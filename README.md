@@ -3,7 +3,7 @@ ScalaJs.io Complete Platform Build
 
 ### Description
 
-This project is used for building all components of the ScalaJs.io platform; including:
+This project is used for locally building and publishing all components of the ScalaJs.io platform; including:
 
 * [Core components](https://github.com/scalajs-io/scalajs.io) (Core, DOM/HTML, Node.js)
 * All browser-based packages
