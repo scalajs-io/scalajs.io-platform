@@ -49,17 +49,11 @@ version = "0.3.0.5"
 # define the directory for all repositories
 repo_cache = "../_repos"
 
-# define the repo handler
-switcher = {
-    "angularjs": lambda: makeSymbolicLinksForAngulaJS(),
-    "scalajs.io": lambda: makeSymbolLinksForScalaJsIO()
-}
-
 # define the symbolic link files
 sym_link_files = {"build.sbt": "build.sbt.txt", "package.json": "package.json", "README.md": "README.md", "src/": "src"}
 
 # define the available repos
-repos = """angularjs async bcrypt bignum body-parser brake buffermaker
+repoNames = """angularjs async bcrypt bignum body-parser brake buffermaker
             cassandra-driver chalk cheerio colors cookie cookie-parser csv-parse
             csvtojson drama escape-html express express-csv express-fileupload express-ws
             facebook-api feedparser-promised filed github-api-node glob html-to-json htmlparser2
@@ -70,8 +64,8 @@ repos = """angularjs async bcrypt bignum body-parser brake buffermaker
             xml2js""".split(" ")
 
 # convert the array to a list of repo names
-repos = list(filter(lambda s: not isBlank(s), repos))
-repos = list(map(lambda s: s.strip(), repos))
+repoNames = list(filter(lambda s: not isBlank(s), repoNames))
+repoNames = list(map(lambda s: s.strip(), repoNames))
 
 #################################################################################################
 #       Application Logic
@@ -85,22 +79,31 @@ if not os.path.exists(repo_cache):
     os.mkdir(repo_cache)
 
 # clone any repos that don't already exist
-print "Checking status of {0} repos...".format(len(repos))
-for repo in repos:
+print "Checking status of {0} repos...".format(len(repoNames))
+for repoName in repoNames:
     # does the repo exist?
-    # if not, clone the repo
-    repo_dir = "{0}/{1}".format(repo_cache, repo)
-    if not os.path.exists(repo_dir):
-        print "Cloning {0}...".format(repo)
-        git_url = "https://github.com/scalajs-io/{0}".format(repo)
+    repo_dir = "{0}/{1}".format(repo_cache, repoName)
+    if os.path.exists(repo_dir):
+        # update the repo
+        repo = Repo(repo_dir)
+        assert not repo.bare
+        print "Updating {0}...".format(repoName)
+        git = repo.git
+        git.pull()
+    else:
+        # if not, clone the repo
+        print "Cloning {0}...".format(repoName)
+        git_url = "https://github.com/scalajs-io/{0}".format(repoName)
         Repo.clone_from(git_url, repo_dir)
 
     # create the local directory if it doesn't exist
-    if not os.path.exists(repo): os.mkdir(repo)
+    if not os.path.exists(repoName): os.mkdir(repoName)
 
     # if the local directory now exists, ensure the symbolic links exists
-    if os.path.exists(repo):
-        func = switcher.get(repo, lambda: makeSymbolicLinks(repo))
+    if os.path.exists(repoName):
+        switcher = {"angularjs": lambda: makeSymbolicLinksForAngulaJS(),
+                    "scalajs.io": lambda: makeSymbolLinksForScalaJsIO()}
+        func = switcher.get(repoName, lambda: makeSymbolicLinks(repoName))
         func()
 
 print "Done."

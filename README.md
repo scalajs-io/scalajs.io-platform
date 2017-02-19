@@ -9,12 +9,22 @@ This project is used for building all components of the ScalaJs.io platform; inc
 * All browser-based packages
 * All npm packages
 
+### Setup
+
+The initial setup is simple. Just run the provided installer script - `install.py`. It will clone 
+the ScalaJ.io repositories for the Core components, browser-based packages and npm packages.
+
+**NOTE**: `install.py` has been provided to both clone the Scalajs.io repositories and keep them updated; 
+meaning you'll want to periodically re-run the script to ensure you have the latest code.
+However, in order to the script to operate properly, you must first install 
+[GitPython](https://github.com/gitpython-developers/GitPython) Python plugin.
+
 ### Build Dependencies
 
 * [SBT v0.13.13](http://www.scala-sbt.org/download.html)
-* [GitPython](https://github.com/gitpython-developers/GitPython)
 
-### Build/publish the SDK locally
+
+### Build/publish the ScalaJs.io platform locally
 
 ```bash
  $ sbt clean publish-local
