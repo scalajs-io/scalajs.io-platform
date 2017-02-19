@@ -15,29 +15,40 @@ from git import Repo
 def isBlank(s): return not (s and s.strip())
 
 
-# creates the symbolic links
-def makeSymbolicLinks(repo):
+# creates the symbolic links for all common repos
+def makeSymbolicLinksCommon(repoName):
     for repo_link, local_link in sym_link_files.items():
-        repo_link_path = os.path.abspath("{0}/{1}/{2}".format(repo_cache, repo, repo_link))
-        local_link_path = "{0}/{1}".format(repo, local_link)
+        repo_link_path = os.path.abspath("{0}/{1}/{2}".format(repo_cache, repoName, repo_link))
+        local_link_path = "{0}/{1}".format(repoName, local_link)
         if os.path.exists(repo_link_path) and not os.path.exists(local_link_path):
-            print "{0]: updating symbolic links".format(repo)
             os.symlink(repo_link_path, local_link_path)
 
 
 # creates the symbolic links for the AngularJS repos
-def makeSymbolicLinksForAngulaJS():
+def makeSymbolicLinksForAngularJS(repoName):
     angular_components = ["anchor-scroll", "animate", "cookies", "core", "facebook", "md5", "nervgh-fileupload", "nvd3",
                           "sanitize", "toaster", "ui-bootstrap", "ui-router"]
     for comp in angular_components:
-        makeSymbolicLinks("angularjs/{0}".format(comp))
+        path = "{0}/{1}".format(repoName, comp)
+        if not os.path.exists(path): os.mkdir(path)
+        makeSymbolicLinksCommon(path)
 
 
 # creates the symbolic links for the ScalaJs.io repos
-def makeSymbolLinksForScalaJsIO():
+def makeSymbolLinksForScalaJsIO(repoName):
     scalajs_io_comonents = ["core", "dom_html", "nodejs"]
     for comp in scalajs_io_comonents:
-        makeSymbolicLinks("scalajs.io/{0}".format(comp))
+        path = "{0}/{1}".format(repoName, comp)
+        if not os.path.exists(path): os.mkdir(path)
+        makeSymbolicLinksCommon(path)
+
+
+# creates the symbolic links
+def makeSymbolicLinks(repoName):
+    switcher = {"angularjs": lambda: makeSymbolicLinksForAngularJS(repoName),
+                "scalajs.io": lambda: makeSymbolLinksForScalaJsIO(repoName)}
+    func = switcher.get(repoName, lambda: makeSymbolicLinksCommon(repoName))
+    func()
 
 
 #################################################################################################
@@ -100,10 +111,6 @@ for repoName in repoNames:
     if not os.path.exists(repoName): os.mkdir(repoName)
 
     # if the local directory now exists, ensure the symbolic links exists
-    if os.path.exists(repoName):
-        switcher = {"angularjs": lambda: makeSymbolicLinksForAngulaJS(),
-                    "scalajs.io": lambda: makeSymbolLinksForScalaJsIO()}
-        func = switcher.get(repoName, lambda: makeSymbolicLinks(repoName))
-        func()
+    if os.path.exists(repoName): makeSymbolicLinks(repoName)
 
 print "Done."
