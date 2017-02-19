@@ -12,6 +12,7 @@ This project is used for building all components of the ScalaJs.io platform; inc
 ### Build Dependencies
 
 * [SBT v0.13.13](http://www.scala-sbt.org/download.html)
+* [GitPython](https://github.com/gitpython-developers/GitPython)
 
 ### Build/publish the SDK locally
 
