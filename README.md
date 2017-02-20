@@ -5,10 +5,10 @@ ScalaJs.io Complete Platform
 
 This project is used for locally building and publishing all components of the ScalaJs.io platform; including:
 
-* <a href="#browser_packages">Browser-based libraries and frameworks</a>
-* <a href="#social_network_packages">Social Networking integration</a>
-* <a href="#node_packages">Node.js packages</a>
-* <a href="#npm_packages">NPM packages</a>
+* <a href="#browser_packages">Browser-based Components</a>
+* <a href="#social_network_packages">Social Networking APIs</a>
+* <a href="#node_packages">Node.js Packages</a>
+* <a href="#npm_packages">NPM Packages</a>
 
 ### Platform Components
 
@@ -33,7 +33,7 @@ This project is used for locally building and publishing all components of the S
 <a name="node_packages"></a>
 #### Node Modules
 
-| Node Module           | Description                                                                     |
+| Module                | Description                                                                     |
 |-----------------------|---------------------------------------------------------------------------------|
 | assert                | Provides a simple set of assertion tests that can be used to test invariants. |
 | buffer                | The Buffer class was introduced as part of the Node.js API to make it possible to interact with octet streams in the context of things like TCP streams and file system operations. |
@@ -63,7 +63,7 @@ This project is used for locally building and publishing all components of the S
 <a name="npm_packages"></a>
 #### NPM Packages
 
-| NPM Package                                                                           | Version | Description                                             |
+| Module / Package                                                                      | Version | Description                                             |
 |---------------------------------------------------------------------------------------|---------|---------------------------------------------------------|
 | [async](https://github.com/scalajs-io/async)                                          | 2.0.0   | Higher-order functions and common patterns for asynchronous code. |
 | [bcrypt](https://github.com/scalajs-io/bcrypt)                                        | 0.0.3   | A native JS bcrypt library for NodeJS. |
