@@ -1,5 +1,5 @@
-ScalaJs.io Complete Platform Build
-===================================
+ScalaJs.io Complete Platform
+============================
 
 ### Description
 
@@ -9,7 +9,57 @@ This project is used for locally building and publishing all components of the S
 * All browser-based packages
 * All npm packages
 
-### Available Node Modules
+### Client-Side Components
+
+#### Available AngularJS (1.5.x) Components
+
+| Service           | Artifact ID                    | Description                      |
+|-------------------|--------------------------------|----------------------------------|
+| $anchorScroll     | angularjs-anchor-scroll        | Anchor Scroll Service. |
+| $animate          | angularjs-animate              | The $animate service exposes a series of DOM utility methods that provide support for animation hooks. |
+| $cacheFactory     | angularjs-core                 | Factory that constructs cache objects and gives access to them. |
+| $compile          | angularjs-core                 | Compiles an HTML string or DOM into a template and produces a template function, which can then be used to link scope and the template together. |
+| $cookies          | angularjs-cookies              | Provides read/write access to browser's cookies. |
+| $cookieStore      | angularjs-cookies              | Provides a key-value (string-object) storage, that is backed by session cookies. |
+| $exceptionHandler | angularjs-core                 | Any uncaught exception in angular expressions is delegated to this service. |
+| $filter           | angularjs-core                 | Selects a subset of items from array and returns it as a new array. |
+| $http             | angularjs-core                 | The $http service is a core Angular service that facilitates communication with the remote HTTP servers via the browser's XMLHttpRequest object or via JSONP. |
+| $injector         | angularjs-core                 | $injector is used to retrieve object instances as defined by provider, instantiate types, invoke methods, and load modules. |
+| $interval         | angularjs-core                 | Angular's wrapper for window.setInterval. The fn function is executed every delay milliseconds. |
+| $location         | angularjs-core                 | The $location service parses the URL in the browser address bar (based on the window.location) and makes the URL available to your application. |
+| $log              | angularjs-core                 | Simple service for logging. Default implementation safely writes the message into the browser's console (if present). |
+| $modal            | angularjs-ui-bootstrap         | Modal Dialogs - Angular UI Bootstrap |
+| $nvd3             | angularjs-nvd3                 | An AngularJS directive for NVD3 re-usable charting library (based on D3).|
+| $parse            | angularjs-core                 | Converts Angular expression into a function. |
+| $q                | angularjs-core                 | A service that helps you run functions asynchronously, and use their return values (or exceptions) when they are done processing. |
+| $resource         | angularjs-core                 | A factory which creates a resource object that lets you interact with RESTful server-side data sources. |
+| $route            | angularjs-ui-router            | $route is used for deep-linking URLs to controllers and views (HTML partials). It watches $location.url() and tries to map the path to an existing route definition. |
+| $sce              | angularjs-sanitize             | $sce is a service that provides Strict Contextual Escaping services to AngularJS. |
+| $timeout          | angularjs-core                 | Angular's wrapper for window.setTimeout. The fn function is wrapped into a try/catch block and delegates any exceptions to $exceptionHandler service. |
+| FacebookService   | angularjs-facebook             | AngularJS - Facebook service |
+| FileUploader      | angularjs-nergvh-fileupload    | AngularJS File Uploader |
+| md5               | angularjs-md5                  | A md5 crypto component for Angular.js. |
+| toaster           | angularjs-toaster              | AngularJS Toaster is a customized version of "toastr" non-blocking notification javascript library. |
+
+#### Available Browser-based Components
+
+| Library               | Description                                                                       |
+|-----------------------|-----------------------------------------------------------------------------------|
+| jquery                | JQuery 3.1.1 facades for Scala.js and ScalaJs.io applications.                    |
+| phaser.js             | A fast, free and fun HTML5 Game Framework for Desktop and Mobile web browsers.    |
+| pixi.js               | Super fast HTML 5 2D rendering engine that uses webGL with canvas fallback        |
+
+#### Available Social Networking APIs
+
+| SDK                   | Description                                                                       |
+|-----------------------|-----------------------------------------------------------------------------------|
+| facebook-api          | Facebook SDK integration for Scala.js and ScalaJs.io applications.                |
+| linkedin-api          | LinkedIN SDK integration for Scala.js and ScalaJs.io applications.                |
+
+
+### Server-Side Components
+
+#### Available Node Modules
 
 | Node Module           | Description                                                                     |
 |-----------------------|---------------------------------------------------------------------------------|
@@ -38,7 +88,7 @@ This project is used for locally building and publishing all components of the S
 | vm                    | The vm module provides APIs for compiling and running code within V8 Virtual Machine contexts.|
 | zlib                  | This provides bindings to Gzip/Gunzip, Deflate/Inflate, and DeflateRaw/InflateRaw classes. |
 
-### Available NPM Packages
+#### Available NPM Packages
 
 | NPM Package                                                                           | Version | Description                                             |
 |---------------------------------------------------------------------------------------|---------|---------------------------------------------------------|
