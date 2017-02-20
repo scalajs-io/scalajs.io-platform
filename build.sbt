@@ -875,7 +875,7 @@ lazy val xml2js = (project in file("xml2js")).
 //      Social sub-projects
 /////////////////////////////////////////////////////////////////////////////////
 
-lazy val facebook = (project in file("facebook")).
+lazy val facebook = (project in file("facebook-api")).
   dependsOn(core).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
@@ -886,7 +886,7 @@ lazy val facebook = (project in file("facebook")).
     version := apiVersion
   )
 
-lazy val linkedin = (project in file("linkedin")).
+lazy val linkedin = (project in file("linkedin-api")).
   dependsOn(core).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
