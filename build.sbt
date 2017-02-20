@@ -31,7 +31,7 @@ val commonSettings = Seq(
 //      ScalaJs.io Core projects
 /////////////////////////////////////////////////////////////////////////////////
 
-lazy val core = (project in file("scalajs.io/core")).
+lazy val core = (project in file("core")).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
   settings(
@@ -41,7 +41,7 @@ lazy val core = (project in file("scalajs.io/core")).
     version := apiVersion
   )
 
-lazy val dom_html = (project in file("scalajs.io/dom_html")).
+lazy val dom_html = (project in file("dom-html")).
   dependsOn(core).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
@@ -52,7 +52,7 @@ lazy val dom_html = (project in file("scalajs.io/dom_html")).
     version := apiVersion
   )
 
-lazy val nodejs = (project in file("scalajs.io/nodejs")).
+lazy val nodejs = (project in file("nodejs")).
   dependsOn(core).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
