@@ -34,19 +34,9 @@ def makeSymbolicLinksForAngularJS(repoName):
         makeSymbolicLinksCommon(path)
 
 
-# creates the symbolic links for the ScalaJs.io repos
-def makeSymbolLinksForScalaJsIO(repoName):
-    scalajs_io_comonents = ["core", "dom_html", "nodejs"]
-    for comp in scalajs_io_comonents:
-        path = "{0}/{1}".format(repoName, comp)
-        if not os.path.exists(path): os.mkdir(path)
-        makeSymbolicLinksCommon(path)
-
-
 # creates the symbolic links
 def makeSymbolicLinks(repoName):
-    switcher = {"angularjs": lambda: makeSymbolicLinksForAngularJS(repoName),
-                "scalajs.io": lambda: makeSymbolLinksForScalaJsIO(repoName)}
+    switcher = {"angularjs": lambda: makeSymbolicLinksForAngularJS(repoName)}
     func = switcher.get(repoName, lambda: makeSymbolicLinksCommon(repoName))
     func()
 
@@ -65,11 +55,11 @@ sym_link_files = {"build.sbt": "build.sbt.txt", "package.json": "package.json", 
 
 # define the available repos
 repoNames = """angularjs async bcrypt bignum body-parser brake buffermaker
-            cassandra-driver chalk cheerio colors cookie cookie-parser csv-parse
-            csvtojson drama escape-html express express-csv express-fileupload express-ws
+            cassandra-driver chalk cheerio colors cookie cookie-parser core csv-parse
+            csvtojson drama dom-html escape-html express express-csv express-fileupload express-ws
             facebook-api feedparser-promised filed github-api-node glob html-to-json htmlparser2
             jquery jsdom jwt-simple kafka-node linkedin-api md5 memory-fs minimist mkdirp
-            moment moment-timezone mongodb multer mysql node-zookeeper-client
+            moment moment-timezone mongodb multer mysql node-zookeeper-client nodejs
             numeral oppressor phaser pixijs readable-stream request rx scalajs.io splitargs
             tingodb tough-cookie transducers-js type-is watch winston winston-daily-rotate-file 
             xml2js""".split(" ")
