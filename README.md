@@ -5,14 +5,15 @@ ScalaJs.io Complete Platform
 
 This project is used for locally building and publishing all components of the ScalaJs.io platform; including:
 
-* [Core components](https://github.com/scalajs-io/scalajs.io) (Core, DOM/HTML, Node.js)
-* <a href="#browser_packages">All browser-based packages</a>
-* <a href="#npm_packages">All npm packages</a>
+* <a href="#browser_packages">Browser-based libraries and frameworks</a>
+* <a href="#social_network_packages">Social Networking integration</a>
+* <a href="#node_packages">Node.js packages</a>
+* <a href="#npm_packages">NPM packages</a>
 
-### Client-Side Components
+### Platform Components
 
 <a name="browser_packages"></a>
-#### Available Browser-based Components
+#### Browser-based Components
 
 | Framework / Library                                   | Description                                                   |
 |-------------------------------------------------------|---------------------------------------------------------------|
@@ -22,18 +23,15 @@ This project is used for locally building and publishing all components of the S
 | [Pixi.js](https://github.com/scalajs-io/pixijs)       | Super fast HTML 5 2D rendering engine that uses webGL with canvas fallback        |
 
 <a name="social_network_packages"></a>
-#### Available Social Networking APIs
+#### Social Networking APIs
 
 | SDK                                                           | Description                                                                       |
 |---------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | [facebook-api](https://github.com/scalajs-io/facebook-api)    | Facebook SDK integration for Scala.js and ScalaJs.io applications.                |
 | [linkedin-api](https://github.com/scalajs-io/linkedin-api)    | LinkedIN SDK integration for Scala.js and ScalaJs.io applications.                |
 
-
-### Server-Side Components
-
 <a name="node_packages"></a>
-#### Available Node Modules
+#### Node Modules
 
 | Node Module           | Description                                                                     |
 |-----------------------|---------------------------------------------------------------------------------|
@@ -63,7 +61,7 @@ This project is used for locally building and publishing all components of the S
 | zlib                  | This provides bindings to Gzip/Gunzip, Deflate/Inflate, and DeflateRaw/InflateRaw classes. |
 
 <a name="npm_packages"></a>
-#### Available NPM Packages
+#### NPM Packages
 
 | NPM Package                                                                           | Version | Description                                             |
 |---------------------------------------------------------------------------------------|---------|---------------------------------------------------------|
