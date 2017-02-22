@@ -60,7 +60,7 @@ repoNames = """angularjs async bcrypt bignum body-parser brake buffermaker
             facebook-api feedparser-promised filed github-api-node glob html-to-json htmlparser2
             jquery jsdom jwt-simple kafka-node linkedin-api md5 memory-fs minimist mkdirp
             moment moment-timezone mongodb multer mysql node-zookeeper-client nodejs
-            numeral oppressor phaser pixijs readable-stream request rx scalajs.io splitargs
+            numeral oppressor phaser pixijs readable-stream request rx scalajs.io splitargs stream-throttle
             tingodb tough-cookie transducers-js type-is watch winston winston-daily-rotate-file 
             xml2js""".split(" ")
 
