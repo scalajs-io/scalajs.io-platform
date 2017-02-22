@@ -783,6 +783,17 @@ lazy val splitargs = (project in file("splitargs")).
     version := "0.0.7-1"
   )
 
+lazy val stream_throttle = (project in file("stream-throttle")).
+  dependsOn(nodejs).
+  enablePlugins(ScalaJSPlugin).
+  settings(commonSettings: _*).
+  settings(
+    name := "stream-throttle",
+    organization := "io.scalajs.npm",
+    description := "stream-throttle binding for Scala.js",
+    version := "0.1.3"
+  )
+
 lazy val tingodb = (project in file("tingodb")).
   dependsOn(nodejs, mongodb).
   enablePlugins(ScalaJSPlugin).
@@ -911,7 +922,7 @@ lazy val complete_platform = (project in file("bundles/complete")).
     html_to_json, htmlparser2, jsdom, jwt_simple, kafka_node, /*kafka_rest,*/
     md5, memory_fs, mkdirp, moment, moment_timezone, mongodb, multer, mysql, node_zookeeper_client,
     numeral, oppressor, readable_stream, request, rxjs, /*should, socketio_client, socketio_server,*/ splitargs,
-    tingodb, tough_cookie, transducers, type_is, watch, winston, winston_daily_rotate_file, xml2js).
+    stream_throttle, tingodb, tough_cookie, transducers, type_is, watch, winston, winston_daily_rotate_file, xml2js).
   dependsOn(
     core, dom_html, jquery, nodejs, phaser, pixijs, facebook, linkedin, angular_platform, mean_stack,
     // npm packages
@@ -921,7 +932,7 @@ lazy val complete_platform = (project in file("bundles/complete")).
     html_to_json, htmlparser2, jsdom, jwt_simple, kafka_node, /*kafka_rest,*/
     md5, memory_fs, mkdirp, moment, moment_timezone, mongodb, multer, mysql, node_zookeeper_client,
     numeral, oppressor, readable_stream, request, rxjs, /*should, socketio_client, socketio_server,*/ splitargs,
-    tingodb, tough_cookie, transducers, type_is, watch, winston, winston_daily_rotate_file, xml2js).
+    stream_throttle, tingodb, tough_cookie, transducers, type_is, watch, winston, winston_daily_rotate_file, xml2js).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
   settings(publishingSettings: _*).
