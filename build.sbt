@@ -9,6 +9,7 @@ import scala.language.postfixOps
 val apiVersion = "0.3.0.5"
 val angularVersion = apiVersion
 val scalaJsVersion = "2.12.1"
+//val scalaJsVersion = "2.11.8"
 
 organization := "io.scalajs"
 
@@ -645,7 +646,7 @@ lazy val mongodb = (project in file("mongodb")).
     name := "mongodb",
     organization := "io.scalajs.npm",
     description := "mongodb binding for Scala.js",
-    version := "2.2.22-1"
+    version := "2.2.22-2"
   )
 
 lazy val multer = (project in file("multer")).
