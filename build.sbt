@@ -649,6 +649,28 @@ lazy val mongodb = (project in file("mongodb")).
     version := "2.2.22-2"
   )
 
+lazy val mongoose = (project in file("mongoose")).
+  dependsOn(nodejs, mpromise).
+  enablePlugins(ScalaJSPlugin).
+  settings(commonSettings: _*).
+  settings(
+    name := "mongoose",
+    organization := "io.scalajs.npm",
+    description := "Mongoose MongoDB ODM [Scala.js]",
+    version := "4.8.1"
+  )
+
+lazy val mpromise = (project in file("mpromise")).
+  dependsOn(nodejs).
+  enablePlugins(ScalaJSPlugin).
+  settings(commonSettings: _*).
+  settings(
+    name := "mpromise",
+    organization := "io.scalajs.npm",
+    description := "A promises/A+ conformant implementation, written for mongoose [Scala.js]",
+    version := "0.5.5"
+  )
+
 lazy val multer = (project in file("multer")).
   dependsOn(express).
   enablePlugins(ScalaJSPlugin).
@@ -921,7 +943,7 @@ lazy val complete_platform = (project in file("bundles/complete")).
     colors, cookie, cookie_parser, csv_parse, csvtojson, drama, escape_html,
     express, express_csv, express_fileupload, express_ws, feedparser, filed, glob,
     html_to_json, htmlparser2, jsdom, jwt_simple, kafka_node, /*kafka_rest,*/
-    md5, memory_fs, mkdirp, moment, moment_timezone, mongodb, multer, mysql, node_zookeeper_client,
+    md5, memory_fs, mkdirp, moment, moment_timezone, mongodb, mongoose, mpromise, multer, mysql, node_zookeeper_client,
     numeral, oppressor, readable_stream, request, rxjs, /*should, socketio_client, socketio_server,*/ splitargs,
     stream_throttle, tingodb, tough_cookie, transducers, type_is, watch, winston, winston_daily_rotate_file, xml2js).
   dependsOn(
@@ -931,7 +953,7 @@ lazy val complete_platform = (project in file("bundles/complete")).
     colors, cookie, cookie_parser, csv_parse, csvtojson, drama, escape_html,
     express, express_csv, express_fileupload, express_ws, feedparser, filed, glob,
     html_to_json, htmlparser2, jsdom, jwt_simple, kafka_node, /*kafka_rest,*/
-    md5, memory_fs, mkdirp, moment, moment_timezone, mongodb, multer, mysql, node_zookeeper_client,
+    md5, memory_fs, mkdirp, moment, moment_timezone, mongodb, mongoose, mpromise, multer, mysql, node_zookeeper_client,
     numeral, oppressor, readable_stream, request, rxjs, /*should, socketio_client, socketio_server,*/ splitargs,
     stream_throttle, tingodb, tough_cookie, transducers, type_is, watch, winston, winston_daily_rotate_file, xml2js).
   enablePlugins(ScalaJSPlugin).

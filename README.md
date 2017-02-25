@@ -101,6 +101,8 @@ This project is used for locally building and publishing all components of the S
 | [moment](https://github.com/scalajs-io/moment)                                        | 2.17.1  | Parse, validate, manipulate, and display dates in JavaScript. |
 | [moment-timezone](https://github.com/scalajs-io/moment)                               | 0.5.11  | Parse and display dates in any timezone. |
 | [mongodb](https://github.com/scalajs-io/mongodb)                                      | 2.2.22  | The official MongoDB driver for Node.js. |
+| [mongoose](https://github.com/scalajs-io/mongoose)                                    | 4.8.1   | Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment. |
+| [mpromise](https://github.com/scalajs-io/mpromise)                                    | 0.5.5   | A promises/A+ conformant implementation, written for mongoose. |
 | [multer](https://github.com/scalajs-io/multer)                                        | 1.1.0   | Multer is a node.js middleware for handling multipart/form-data. | Tesing required |
 | [mysql](https://github.com/scalajs-io/mysql)                                          | 2.10.2  | A node.js driver for mysql. |
 | [node-zookeeper-client](https://github.com/scalajs-io/node-zookeeper-client)          | 0.2.2   | A higher-level ZooKeeper client based on node-zookeeper with support for locking and master election. | Tesing required |
