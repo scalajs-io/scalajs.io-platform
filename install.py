@@ -45,7 +45,7 @@ def makeSymbolicLinks(repoName):
 #       Initial Setup
 #################################################################################################
 
-version = "0.3.0.5"
+version = "0.3.0.6"
 
 # define the directory for all repositories
 repo_cache = "../_repos"
@@ -61,7 +61,7 @@ repoNames = """angularjs async bcrypt bignum body-parser brake buffermaker
             jquery jsdom jwt-simple kafka-node linkedin-api md5 memory-fs minimist mkdirp 
             moment moment-duration-format moment-timezone mongodb mongoose mpromise multer mysql 
             node-zookeeper-client nodejs numeral oppressor phaser pixijs readable-stream request rx 
-            scalajs.io splitargs stream-throttle throttle tingodb tough-cookie transducers-js type-is 
+            splitargs stream-throttle throttle tingodb tough-cookie transducers-js type-is 
             watch winston winston-daily-rotate-file xml2js""".split(" ")
 
 # convert the array to a list of repo names
