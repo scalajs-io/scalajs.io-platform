@@ -627,6 +627,17 @@ lazy val moment = (project in file("moment")).
     version := "2.17.1-2"
   )
 
+lazy val moment_duration_format = (project in file("moment-duration-format")).
+  dependsOn(nodejs, moment).
+  enablePlugins(ScalaJSPlugin).
+  settings(commonSettings: _*).
+  settings(
+    name := "moment-duration-format",
+    organization := "io.scalajs.npm",
+    description := "A moment.js plugin for formatting durations.",
+    version := "1.3.0"
+  )
+
 lazy val moment_timezone = (project in file("moment-timezone")).
   dependsOn(nodejs, moment).
   enablePlugins(ScalaJSPlugin).
@@ -817,6 +828,17 @@ lazy val stream_throttle = (project in file("stream-throttle")).
     version := "0.1.3"
   )
 
+lazy val throttle = (project in file("throttle")).
+  dependsOn(nodejs).
+  enablePlugins(ScalaJSPlugin).
+  settings(commonSettings: _*).
+  settings(
+    name := "throttle",
+    organization := "io.scalajs.npm",
+    description := "Node.js Transform stream that passes data through at n bytes per second",
+    version := "1.0.3"
+  )
+
 lazy val tingodb = (project in file("tingodb")).
   dependsOn(nodejs, mongodb).
   enablePlugins(ScalaJSPlugin).
@@ -955,7 +977,8 @@ lazy val complete_platform = (project in file("bundles/complete")).
     html_to_json, htmlparser2, jsdom, jwt_simple, kafka_node, /*kafka_rest,*/
     md5, memory_fs, mkdirp, moment, moment_timezone, mongodb, mongoose, mpromise, multer, mysql, node_zookeeper_client,
     numeral, oppressor, readable_stream, request, rxjs, /*should, socketio_client, socketio_server,*/ splitargs,
-    stream_throttle, tingodb, tough_cookie, transducers, type_is, watch, winston, winston_daily_rotate_file, xml2js).
+    stream_throttle, throttle, tingodb, tough_cookie, transducers, type_is,
+    watch, winston, winston_daily_rotate_file, xml2js).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
   settings(publishingSettings: _*).

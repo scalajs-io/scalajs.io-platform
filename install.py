@@ -59,10 +59,10 @@ repoNames = """angularjs async bcrypt bignum body-parser brake buffermaker
             csvtojson drama dom-html escape-html express express-csv express-fileupload express-ws
             facebook-api feedparser-promised filed github-api-node glob html-to-json htmlparser2
             jquery jsdom jwt-simple kafka-node linkedin-api md5 memory-fs minimist mkdirp 
-            moment moment-timezone mongodb mongoose mpromise multer mysql node-zookeeper-client nodejs
-            numeral oppressor phaser pixijs readable-stream request rx scalajs.io splitargs stream-throttle
-            tingodb tough-cookie transducers-js type-is watch winston winston-daily-rotate-file 
-            xml2js""".split(" ")
+            moment moment-duration-format moment-timezone mongodb mongoose mpromise multer mysql 
+            node-zookeeper-client nodejs numeral oppressor phaser pixijs readable-stream request rx 
+            scalajs.io splitargs stream-throttle throttle tingodb tough-cookie transducers-js type-is 
+            watch winston winston-daily-rotate-file xml2js""".split(" ")
 
 # convert the array to a list of repo names
 repoNames = list(filter(lambda s: not isBlank(s), repoNames))
