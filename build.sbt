@@ -6,8 +6,8 @@ import sbt._
 
 import scala.language.postfixOps
 
-val apiVersion = "0.3.0.6"
-val angularVersion = apiVersion
+val apiVersion = "0.3.0.7"
+val angularVersion = "1.6.3"
 val scalaJsVersion = "2.12.1"
 //val scalaJsVersion = "2.11.8"
 
@@ -57,6 +57,7 @@ lazy val nodejs = (project in file("nodejs")).
   dependsOn(core).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
+  settings(publishingSettings: _*).
   settings(
     name := "nodejs",
     organization := "io.scalajs",
@@ -105,134 +106,134 @@ lazy val pixijs = (project in file("pixijs")).
 //      Browser Platform / AngularJS projects
 /////////////////////////////////////////////////////////////////////////////////
 
-lazy val angular_core = (project in file("angularjs/core")).
+lazy val angular = (project in file("angular")).
   dependsOn(core, dom_html, jquery).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
   settings(
-    name := "angularjs-core",
-    organization := "io.scalajs",
+    name := "angular",
+    organization := "io.scalajs.npm",
     description := "AngularJS/core binding for Scala.js",
     version := angularVersion
   )
 
-lazy val angular_anchorScroll = (project in file("angularjs/anchor-scroll")).
-  dependsOn(angular_core).
+lazy val angular_anchorScroll = (project in file("angular-anchor-scroll")).
+  dependsOn(angular).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
   settings(
-    name := "angularjs-anchor-scroll",
-    organization := "io.scalajs",
+    name := "angular-anchor-scroll",
+    organization := "io.scalajs.npm",
     description := "AngularJS/anchorScroll binding for Scala.js",
-    version := angularVersion
+    version := "1.0.0"
   )
 
-lazy val angular_animate = (project in file("angularjs/animate")).
-  dependsOn(angular_core).
+lazy val angular_animate = (project in file("angular-animate")).
+  dependsOn(angular).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
   settings(
-    name := "angularjs-animate",
-    organization := "io.scalajs",
+    name := "angular-animate",
+    organization := "io.scalajs.npm",
     description := "AngularJS/animate binding for Scala.js",
     version := angularVersion
   )
 
-lazy val angular_cookies = (project in file("angularjs/cookies")).
-  dependsOn(angular_core).
+lazy val angular_cookies = (project in file("angular-cookies")).
+  dependsOn(angular).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
   settings(
-    name := "angularjs-cookies",
-    organization := "io.scalajs",
+    name := "angular-cookies",
+    organization := "io.scalajs.npm",
     description := "AngularJS/cookies binding for Scala.js",
     version := angularVersion
   )
 
-lazy val angular_facebook = (project in file("angularjs/facebook")).
-  dependsOn(angular_core, facebook).
+lazy val angular_facebook = (project in file("angular-facebook")).
+  dependsOn(angular, facebook).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
   settings(
-    name := "angularjs-facebook",
-    organization := "io.scalajs",
+    name := "angular-facebook",
+    organization := "io.scalajs.npm",
     description := "AngularJS/facebook binding for Scala.js",
-    version := angularVersion
+    version := apiVersion
   )
 
-lazy val angular_md5 = (project in file("angularjs/md5")).
-  dependsOn(angular_core).
+lazy val angular_md5 = (project in file("angular-md5")).
+  dependsOn(angular).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
   settings(
-    name := "angularjs-md5",
-    organization := "io.scalajs",
+    name := "angular-md5",
+    organization := "io.scalajs.npm",
     description := "AngularJS/md5 binding for Scala.js",
-    version := angularVersion
+    version := "0.1.10"
   )
 
-lazy val angular_nervgh_fileupload = (project in file("angularjs/nervgh-fileupload")).
-  dependsOn(angular_core).
+lazy val angular_file_upload = (project in file("angular-file-upload")).
+  dependsOn(angular).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
   settings(
-    name := "angularjs-nervgh-fileupload",
-    organization := "io.scalajs",
-    description := "AngularJS/nervgh-fileupload binding for Scala.js",
-    version := angularVersion
+    name := "angular-file-upload",
+    organization := "io.scalajs.npm",
+    description := "angular-file-upload binding for Scala.js",
+    version := "2.5.0"
   )
 
-lazy val angular_nvd3 = (project in file("angularjs/nvd3")).
-  dependsOn(angular_core).
+lazy val angular_nvd3 = (project in file("angular-nvd3")).
+  dependsOn(angular).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
   settings(
-    name := "angularjs-nvd3",
-    organization := "io.scalajs",
+    name := "angular-nvd3",
+    organization := "io.scalajs.npm",
     description := "AngularJS/nvd3 binding for Scala.js",
-    version := angularVersion
+    version := "1.0.9"
   )
 
-lazy val angular_sanitize = (project in file("angularjs/sanitize")).
-  dependsOn(angular_core).
+lazy val angular_sanitize = (project in file("angular-sanitize")).
+  dependsOn(angular).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
   settings(
-    name := "angularjs-sanitize",
-    organization := "io.scalajs",
+    name := "angular-sanitize",
+    organization := "io.scalajs.npm",
     description := "AngularJS/sanitize binding for Scala.js",
     version := angularVersion
   )
 
-lazy val angular_toaster = (project in file("angularjs/toaster")).
-  dependsOn(angular_core).
+lazy val angular_toaster = (project in file("angular-toaster")).
+  dependsOn(angular).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
   settings(
-    name := "angularjs-toaster",
-    organization := "io.scalajs",
+    name := "angular-toaster",
+    organization := "io.scalajs.npm",
     description := "AngularJS/toaster binding for Scala.js",
-    version := angularVersion
+    version := "2.1.0"
   )
 
-lazy val angular_ui_bootstrap = (project in file("angularjs/ui-bootstrap")).
-  dependsOn(angular_core).
+lazy val angular_ui_bootstrap = (project in file("angular-ui-bootstrap")).
+  dependsOn(angular).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
   settings(
-    name := "angularjs-ui-bootstrap",
-    organization := "io.scalajs",
+    name := "angular-ui-bootstrap",
+    organization := "io.scalajs.npm",
     description := "AngularJS/ui-bootstrap binding for Scala.js",
     version := angularVersion
   )
 
-lazy val angular_ui_router = (project in file("angularjs/ui-router")).
-  dependsOn(angular_core).
+lazy val angular_ui_router = (project in file("angular-ui-router")).
+  dependsOn(angular).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
   settings(
-    name := "angularjs-ui-router",
-    organization := "io.scalajs",
+    name := "angular-ui-router",
+    organization := "io.scalajs.npm",
     description := "AngularJS/ui-router binding for Scala.js",
     version := angularVersion
   )
@@ -631,6 +632,7 @@ lazy val moment_duration_format = (project in file("moment-duration-format")).
   dependsOn(nodejs, moment).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
+  settings(publishingSettings: _*).
   settings(
     name := "moment-duration-format",
     organization := "io.scalajs.npm",
@@ -642,6 +644,7 @@ lazy val moment_timezone = (project in file("moment-timezone")).
   dependsOn(nodejs, moment).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
+  settings(publishingSettings: _*).
   settings(
     name := "moment-timezone",
     organization := "io.scalajs.npm",
@@ -653,22 +656,24 @@ lazy val mongodb = (project in file("mongodb")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
+  settings(publishingSettings: _*).
   settings(
     name := "mongodb",
     organization := "io.scalajs.npm",
-    description := "mongodb binding for Scala.js",
-    version := "2.2.22-3"
+    description := "The official MongoDB driver for Node.js.",
+    version := "2.2.22-5"
   )
 
 lazy val mongoose = (project in file("mongoose")).
   dependsOn(nodejs, mongodb, mpromise).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
+  settings(publishingSettings: _*).
   settings(
     name := "mongoose",
     organization := "io.scalajs.npm",
     description := "Mongoose MongoDB ODM [Scala.js]",
-    version := "4.8.1"
+    version := "4.8.1-1"
   )
 
 lazy val mpromise = (project in file("mpromise")).
@@ -821,6 +826,7 @@ lazy val stream_throttle = (project in file("stream-throttle")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
+  settings(publishingSettings: _*).
   settings(
     name := "stream-throttle",
     organization := "io.scalajs.npm",
@@ -832,6 +838,7 @@ lazy val throttle = (project in file("throttle")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
+  settings(publishingSettings: _*).
   settings(
     name := "throttle",
     organization := "io.scalajs.npm",
@@ -990,17 +997,17 @@ lazy val complete_platform = (project in file("bundles/complete")).
 
 lazy val angular_platform = (project in file("bundles/angularjs")).
   aggregate(
-    angular_core, angular_anchorScroll, angular_animate, angular_cookies, angular_facebook, angular_md5,
-    angular_nervgh_fileupload, angular_nvd3, angular_sanitize, angular_toaster, angular_ui_bootstrap, angular_ui_router).
+    angular, angular_anchorScroll, angular_animate, angular_cookies, angular_facebook, angular_md5,
+    angular_file_upload, angular_nvd3, angular_sanitize, angular_toaster, angular_ui_bootstrap, angular_ui_router).
   dependsOn(
-    angular_core, angular_anchorScroll, angular_animate, angular_cookies, angular_facebook, angular_md5,
-    angular_nervgh_fileupload, angular_nvd3, angular_sanitize, angular_toaster, angular_ui_bootstrap, angular_ui_router).
+    angular, angular_anchorScroll, angular_animate, angular_cookies, angular_facebook, angular_md5,
+    angular_file_upload, angular_nvd3, angular_sanitize, angular_toaster, angular_ui_bootstrap, angular_ui_router).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
   settings(publishingSettings: _*).
   settings(
-    name := "angularjs-bundle",
-    organization := "io.scalajs",
+    name := "angular-bundle",
+    organization := "io.scalajs.npm",
     description := "AngularJS platform bundle"
   )
 

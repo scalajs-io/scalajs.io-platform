@@ -54,7 +54,9 @@ repo_cache = "../_repos"
 sym_link_files = {"build.sbt": "build.sbt.txt", "package.json": "package.json", "README.md": "README.md", "src/": "src"}
 
 # define the available repos
-repoNames = """angularjs async bcrypt bignum body-parser brake buffermaker
+repoNames = """angular angular-cookies angular-md5 angularjs-toaster angular-anchor-scroll angular-facebook
+            angular-nvd3 angular-ui-bootstrap angular-animate angular-file-upload angular-sanitize 
+            angular-ui-router async bcrypt bignum body-parser brake buffermaker
             cassandra-driver chalk cheerio colors cookie cookie-parser core csv-parse
             csvtojson drama dom-html escape-html express express-csv express-fileupload express-ws
             facebook-api feedparser-promised filed github-api-node glob html-to-json htmlparser2
