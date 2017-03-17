@@ -61,7 +61,7 @@ repoNames = """angular angular-cookies angular-md5 angularjs-toaster angular-anc
             csvtojson dom-html drama escape-html express express-csv express-fileupload express-ws
             facebook-api feedparser-promised filed github-api-node glob gzip-uncompressed-size 
             html-to-json htmlparser2 jquery jsdom jwt-simple kafka-node linkedin-api md5 memory-fs minimist mkdirp 
-            moment moment-duration-format moment-timezone mongodb mongoose mpromise multer mysql 
+            moment moment-duration-format moment-range moment-timezone mongodb mongoose mpromise multer mysql 
             node-zookeeper-client nodejs numeral oppressor phaser pixijs readable-stream request rx 
             splitargs stream-throttle throttle tingodb tough-cookie transducers-js type-is 
             watch winston winston-daily-rotate-file xml2js""".split(" ")

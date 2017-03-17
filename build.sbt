@@ -652,6 +652,17 @@ lazy val moment_duration_format = (project in file("moment-duration-format")).
     version := "1.3.0-1"
   )
 
+lazy val moment_range = (project in file("moment-range")).
+  dependsOn(nodejs, moment).
+  enablePlugins(ScalaJSPlugin).
+  settings(commonSettings: _*).
+  settings(
+    name := "moment-range",
+    organization := "io.scalajs.npm",
+    description := "Fancy date ranges for Moment.js.",
+    version := "3.0.3"
+  )
+
 lazy val moment_timezone = (project in file("moment-timezone")).
   dependsOn(nodejs, moment).
   enablePlugins(ScalaJSPlugin).
@@ -984,7 +995,8 @@ lazy val complete_platform = (project in file("bundles/complete")).
     colors, cookie, cookie_parser, csv_parse, csvtojson, drama, escape_html,
     express, express_csv, express_fileupload, express_ws, feedparser, filed, github_api_node,
     glob, gzip_uncompressed_size, html_to_json, htmlparser2, jsdom, jwt_simple, kafka_node, /*kafka_rest,*/
-    md5, memory_fs, mkdirp, moment, moment_timezone, mongodb, mongoose, mpromise, multer, mysql, node_zookeeper_client,
+    md5, memory_fs, mkdirp, moment, moment_range, moment_timezone,
+    mongodb, mongoose, mpromise, multer, mysql, node_zookeeper_client,
     numeral, oppressor, readable_stream, request, rxjs, /*should, socketio_client, socketio_server,*/ splitargs,
     stream_throttle, throttle, tingodb, tough_cookie, transducers, type_is,
     watch, winston, winston_daily_rotate_file, xml2js).
@@ -995,7 +1007,8 @@ lazy val complete_platform = (project in file("bundles/complete")).
     colors, cookie, cookie_parser, csv_parse, csvtojson, drama, escape_html,
     express, express_csv, express_fileupload, express_ws, feedparser, filed, github_api_node,
     glob, gzip_uncompressed_size, html_to_json, htmlparser2, jsdom, jwt_simple, kafka_node, /*kafka_rest,*/
-    md5, memory_fs, mkdirp, moment, moment_timezone, mongodb, mongoose, mpromise, multer, mysql, node_zookeeper_client,
+    md5, memory_fs, mkdirp, moment, moment_range, moment_timezone,
+    mongodb, mongoose, mpromise, multer, mysql, node_zookeeper_client,
     numeral, oppressor, readable_stream, request, rxjs, /*should, socketio_client, socketio_server,*/ splitargs,
     stream_throttle, throttle, tingodb, tough_cookie, transducers, type_is,
     watch, winston, winston_daily_rotate_file, xml2js).

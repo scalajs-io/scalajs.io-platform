@@ -17,7 +17,7 @@ This project is used for locally building and publishing all components of the S
 
 | Framework / Library                                   | Description                                                   |
 |-------------------------------------------------------|---------------------------------------------------------------|
-| [AngularJS](https://github.com/scalajs-io/angularjs)  | AngularJS 1.5.x binding for Scala.js. |
+| [AngularJS](https://github.com/scalajs-io/angularjs)  | AngularJS 1.6.x binding for Scala.js. |
 | [JQuery](https://github.com/scalajs-io/jquery)        | JQuery 3.1.1 facades for Scala.js and ScalaJs.io applications. |
 | [Phaser.js](https://github.com/scalajs-io/phaser)     | A fast, free and fun HTML5 Game Framework for Desktop and Mobile web browsers.    |
 | [Pixi.js](https://github.com/scalajs-io/pixijs)       | Super fast HTML 5 2D rendering engine that uses webGL with canvas fallback        |
@@ -89,6 +89,7 @@ This project is used for locally building and publishing all components of the S
 | [filed](https://github.com/scalajs-io/filed)                                          | 0.1.0   | Simplified file library. |
 | [github-api-node](https://github.com/scalajs-io/github-api-node)                      | 0.11.2  | A higher-level wrapper around the Github API. |
 | [glob](https://github.com/scalajs-io/glob)                                            | 7.1.1   | A little globber. |
+| [gzip-uncompressed-size](https://github.com/scalajs-io/gzip-uncompressed-size)        | 1.0.0   | Determine the estimated uncompressed size from a GZIP file (uses ISIZE). |
 | [html-to-json](https://github.com/scalajs-io/html-to-json)                            | 0.6.0   | Parses HTML strings into objects using flexible, composable filters. |
 | [htmlparser2](https://github.com/scalajs-io/htmlparser2)                              | 3.9.1   | A forgiving HTML/XML/RSS parser. The parser can handle streams and provides a callback interface. |
 | [jsdom](https://github.com/scalajs-io/jsdom)                                          | 9.9.1   | A JavaScript implementation of the WHATWG DOM and HTML standards, for use with Node.js |
@@ -97,9 +98,12 @@ This project is used for locally building and publishing all components of the S
 | [kafka-rest](https://github.com/scalajs-io/kafka-rest)                                | 0.0.4   | REST Proxy wrapper library for Kafka | Tesing required |
 | [md5](https://github.com/scalajs-io/md5)                                              | 2.1.0   | A JavaScript function for hashing messages with MD5. |
 | [memory-fs](https://github.com/scalajs-io/memory-fs)                                  | 0.3.0   | A simple in-memory filesystem. Holds data in a javascript object. |
+| [minimist](https://github.com/scalajs-io/minimist)                                    | 1.2.0   | This module is the guts of optimist's argument parser without all the fanciful decoration. |
 | [mkdirp](https://github.com/scalajs-io/mkdirp)                                        | 0.5.1   | Recursively mkdir, like mkdir -p. |
 | [moment](https://github.com/scalajs-io/moment)                                        | 2.17.1  | Parse, validate, manipulate, and display dates in JavaScript. |
-| [moment-timezone](https://github.com/scalajs-io/moment)                               | 0.5.11  | Parse and display dates in any timezone. |
+| [moment-duration-format](https://github.com/scalajs-io/moment-duration-format)        | 1.3.0   | Format plugin for the Moment Duration object. |
+| [moment-range](https://github.com/scalajs-io/moment-range)                            | 3.0.3   | Fancy date ranges for Moment.js. |
+| [moment-timezone](https://github.com/scalajs-io/moment-timezone)                      | 0.5.11  | Parse and display dates in any timezone. |
 | [mongodb](https://github.com/scalajs-io/mongodb)                                      | 2.2.22  | The official MongoDB driver for Node.js. |
 | [mongoose](https://github.com/scalajs-io/mongoose)                                    | 4.8.1   | Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment. |
 | [mpromise](https://github.com/scalajs-io/mpromise)                                    | 0.5.5   | A promises/A+ conformant implementation, written for mongoose. |
@@ -114,6 +118,8 @@ This project is used for locally building and publishing all components of the S
 | [socket.io](https://github.com/scalajs-io/socket.io)                                  | 1.7.2   | Realtime application framework (Node.JS server). |
 | [socket.io-client](https://github.com/scalajs-io/socket.io-client)                    | 1.7.2   | Socket.io client. |
 | [splitargs](https://github.com/scalajs-io/splitargs)                                  | 0.0.7   | Splits strings into tokens by given separator except treating quoted part as a single token. |
+| [stream-throttle](https://github.com/scalajs-io/stream-throttle)                      | 0.1.3   | A rate limiter for Node.js streams. |
+| [throttle](https://github.com/scalajs-io/throttle)                                    | 1.0.3   | Node.js Transform stream that passes data through at n bytes per second. |
 | [tingodb](https://github.com/scalajs-io/tingodb)                                      | 0.5.1   | Embedded Node.js database upward compatible with MongoDB. |
 | [tough-cookie](https://github.com/scalajs-io/tough-cookie)                            | 2.3.2   | RFC6265 Cookies and Cookie Jar for node.js. |
 | [transducers-js](https://github.com/scalajs-io/transducers-js)                        | 0.4.174 | A high performance Transducers implementation for JavaScript. |
@@ -165,18 +171,18 @@ The following bundled artifacts are generated by this project:
 ##### Complete platform bundle
 
 ```sbt
-libraryDependencies += "io.scalajs" %%% "complete-platform" % "0.3.0.6"
+libraryDependencies += "io.scalajs" %%% "complete-platform" % "0.3.0.7"
 ```
 ##### MEAN Stack bundle (Node, MongoDB and Express.js)
 
 ```sbt
-libraryDependencies += "io.scalajs.npm" %%% "mean-stack" % "0.3.0.6"
+libraryDependencies += "io.scalajs.npm" %%% "mean-stack" % "0.3.0.7"
 ```
 
 ##### Angular.js bundle (including all associated components)
 
 ```sbt
-libraryDependencies += "io.scalajs" %%% "angularjs-bundle" % "0.3.0.6"
+libraryDependencies += "io.scalajs" %%% "angularjs-bundle" % "0.3.0.7"
 ```
 
 Optionally, you may add the Sonatype Repository resolver:
