@@ -77,7 +77,7 @@ lazy val jquery = (project in file("jquery")).
     name := "jquery",
     organization := "io.scalajs",
     description := "JQuery bindings for Scala.js",
-    version := "3.1.1-2"
+    version := "3.1.1-3"
   )
 
 lazy val phaser = (project in file("phaser")).
@@ -88,7 +88,7 @@ lazy val phaser = (project in file("phaser")).
     name := "phaser",
     organization := "io.scalajs",
     description := "Phaser 3.x bindings for Scala.js",
-    version := "2.6.2-2"
+    version := "2.6.2-3"
   )
 
 lazy val pixijs = (project in file("pixijs")).
@@ -99,7 +99,7 @@ lazy val pixijs = (project in file("pixijs")).
     name := "pixijs",
     organization := "io.scalajs",
     description := "PIXI.js bindings for Scala.js",
-    version := "4.3.5-2"
+    version := "4.3.5-3"
   )
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -205,17 +205,6 @@ lazy val angular_sanitize = (project in file("angular-sanitize")).
     version := angularVersion
   )
 
-lazy val angular_toaster = (project in file("angular-toaster")).
-  dependsOn(angular).
-  enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
-  settings(
-    name := "angular-toaster",
-    organization := "io.scalajs.npm",
-    description := "AngularJS/toaster binding for Scala.js",
-    version := "2.1.0"
-  )
-
 lazy val angular_ui_bootstrap = (project in file("angular-ui-bootstrap")).
   dependsOn(angular).
   enablePlugins(ScalaJSPlugin).
@@ -238,6 +227,17 @@ lazy val angular_ui_router = (project in file("angular-ui-router")).
     version := angularVersion
   )
 
+lazy val angularjs_toaster = (project in file("angularjs-toaster")).
+  dependsOn(angular).
+  enablePlugins(ScalaJSPlugin).
+  settings(commonSettings: _*).
+  settings(
+    name := "angularjs-toaster",
+    organization := "io.scalajs.npm",
+    description := "AngularJS/toaster binding for Scala.js",
+    version := "2.1.0"
+  )
+
 /////////////////////////////////////////////////////////////////////////////////
 //      NPM packages
 /////////////////////////////////////////////////////////////////////////////////
@@ -250,7 +250,7 @@ lazy val async = (project in file("async")).
     name := "async",
     organization := "io.scalajs.npm",
     description := "async binding for Scala.js",
-    version := "2.1.4-2"
+    version := "2.1.4-3"
   )
 
 lazy val bcrypt = (project in file("bcrypt")).
@@ -261,7 +261,7 @@ lazy val bcrypt = (project in file("bcrypt")).
     name := "bcrypt",
     organization := "io.scalajs.npm",
     description := "bcrypt binding for Scala.js",
-    version := "1.0.2-2"
+    version := "1.0.2-3"
   )
 
 lazy val bignum = (project in file("bignum")).
@@ -272,7 +272,7 @@ lazy val bignum = (project in file("bignum")).
     name := "bignum",
     organization := "io.scalajs.npm",
     description := "bignum binding for Scala.js",
-    version := "0.12.5-2"
+    version := "0.12.5-3"
   )
 
 lazy val body_parser = (project in file("body-parser")).
@@ -283,7 +283,7 @@ lazy val body_parser = (project in file("body-parser")).
     name := "body-parser",
     organization := "io.scalajs.npm",
     description := "body-parser binding for Scala.js",
-    version := "1.16.0-2"
+    version := "1.16.0-3"
   )
 
 lazy val brake = (project in file("brake")).
@@ -294,7 +294,7 @@ lazy val brake = (project in file("brake")).
     name := "brake",
     organization := "io.scalajs.npm",
     description := "brake binding for Scala.js",
-    version := "1.0.1-2"
+    version := "1.0.1-3"
   )
 
 lazy val buffermaker = (project in file("buffermaker")).
@@ -305,7 +305,7 @@ lazy val buffermaker = (project in file("buffermaker")).
     name := "buffermaker",
     organization := "io.scalajs.npm",
     description := "buffermaker binding for Scala.js",
-    version := "1.2.0-2"
+    version := "1.2.0-3"
   )
 
 lazy val cassandra_driver = (project in file("cassandra-driver")).
@@ -316,7 +316,7 @@ lazy val cassandra_driver = (project in file("cassandra-driver")).
     name := "cassandra-driver",
     organization := "io.scalajs.npm",
     description := "cassandra-driver binding for Scala.js",
-    version := "3.2.0-2"
+    version := "3.2.0-3"
   )
 
 lazy val chalk = (project in file("chalk")).
@@ -327,7 +327,7 @@ lazy val chalk = (project in file("chalk")).
     name := "chalk",
     organization := "io.scalajs.npm",
     description := "chalk binding for Scala.js",
-    version := "1.1.3-2"
+    version := "1.1.3-3"
   )
 
 lazy val cheerio = (project in file("cheerio")).
@@ -338,7 +338,7 @@ lazy val cheerio = (project in file("cheerio")).
     name := "cheerio",
     organization := "io.scalajs.npm",
     description := "cheerio binding for Scala.js",
-    version := "0.22.0-2"
+    version := "0.22.0-3"
   )
 
 lazy val colors = (project in file("colors")).
@@ -349,7 +349,7 @@ lazy val colors = (project in file("colors")).
     name := "colors",
     organization := "io.scalajs.npm",
     description := "colors binding for Scala.js",
-    version := "1.1.2-2"
+    version := "1.1.2-3"
   )
 
 lazy val cookie = (project in file("cookie")).
@@ -360,7 +360,7 @@ lazy val cookie = (project in file("cookie")).
     name := "cookie",
     organization := "io.scalajs.npm",
     description := "cookie binding for Scala.js",
-    version := "0.3.1-2"
+    version := "0.3.1-3"
   )
 
 lazy val cookie_parser = (project in file("cookie-parser")).
@@ -371,7 +371,7 @@ lazy val cookie_parser = (project in file("cookie-parser")).
     name := "cookie-parser",
     organization := "io.scalajs.npm",
     description := "cookie-parser binding for Scala.js",
-    version := "1.4.3-2"
+    version := "1.4.3-3"
   )
 
 lazy val csv_parse = (project in file("csv-parse")).
@@ -382,7 +382,7 @@ lazy val csv_parse = (project in file("csv-parse")).
     name := "csv-parse",
     organization := "io.scalajs.npm",
     description := "csv-parse binding for Scala.js",
-    version := "1.2.0-2"
+    version := "1.2.0-3"
   )
 
 lazy val csvtojson = (project in file("csvtojson")).
@@ -393,7 +393,7 @@ lazy val csvtojson = (project in file("csvtojson")).
     name := "csvtojson",
     organization := "io.scalajs.npm",
     description := "csvtojson binding for Scala.js",
-    version := "1.1.4-2"
+    version := "1.1.4-3"
   )
 
 lazy val drama = (project in file("drama")).
@@ -404,7 +404,7 @@ lazy val drama = (project in file("drama")).
     name := "drama",
     organization := "io.scalajs.npm",
     description := "drama binding for Scala.js",
-    version := "0.1.3-2"
+    version := "0.1.3-3"
   )
 
 lazy val escape_html = (project in file("escape-html")).
@@ -415,7 +415,7 @@ lazy val escape_html = (project in file("escape-html")).
     name := "escape-html",
     organization := "io.scalajs.npm",
     description := "escape-html binding for Scala.js",
-    version := "1.0.3-2"
+    version := "1.0.3-3"
   )
 
 lazy val express = (project in file("express")).
@@ -426,7 +426,7 @@ lazy val express = (project in file("express")).
     name := "express",
     organization := "io.scalajs.npm",
     description := "express binding for Scala.js",
-    version := "4.14.1-2"
+    version := "4.14.1-3"
   )
 
 lazy val express_csv = (project in file("express-csv")).
@@ -437,7 +437,7 @@ lazy val express_csv = (project in file("express-csv")).
     name := "express-csv",
     organization := "io.scalajs.npm",
     description := "expressjs-csv binding for Scala.js",
-    version := "0.6.0-2"
+    version := "0.6.0-3"
   )
 
 lazy val express_fileupload = (project in file("express-fileupload")).
@@ -448,7 +448,7 @@ lazy val express_fileupload = (project in file("express-fileupload")).
     name := "express-fileupload",
     organization := "io.scalajs.npm",
     description := "expressjs-fileupload binding for Scala.js",
-    version := "0.0.7-2"
+    version := "0.0.7-3"
   )
 
 lazy val express_ws = (project in file("express-ws")).
@@ -459,7 +459,7 @@ lazy val express_ws = (project in file("express-ws")).
     name := "express-ws",
     organization := "io.scalajs.npm",
     description := "expressjs-ws binding for Scala.js",
-    version := "2.0.0-2"
+    version := "2.0.0-3"
   )
 
 lazy val feedparser = (project in file("feedparser-promised")).
@@ -470,7 +470,7 @@ lazy val feedparser = (project in file("feedparser-promised")).
     name := "feedparser-promised",
     organization := "io.scalajs.npm",
     description := "feedparser-promised binding for Scala.js",
-    version := "1.1.1-2"
+    version := "1.1.1-3"
   )
 
 lazy val filed = (project in file("filed")).
@@ -481,7 +481,7 @@ lazy val filed = (project in file("filed")).
     name := "filed",
     organization := "io.scalajs.npm",
     description := "filed binding for Scala.js",
-    version := "0.1.0-2"
+    version := "0.1.0-3"
   )
 
 lazy val github_api_node = (project in file("github-api-node")).
@@ -492,7 +492,7 @@ lazy val github_api_node = (project in file("github-api-node")).
     name := "github-api-node",
     organization := "io.scalajs.npm",
     description := "A higher-level wrapper around the Github API.",
-    version := "0.11.2-2"
+    version := "0.11.2-3"
   )
 
 lazy val glob = (project in file("glob")).
@@ -503,8 +503,20 @@ lazy val glob = (project in file("glob")).
     name := "glob",
     organization := "io.scalajs.npm",
     description := "glob binding for Scala.js",
-    version := "7.1.1-2"
+    version := "7.1.1-3"
   )
+
+lazy val gzip_uncompressed_size = (project in file("gzip-uncompressed-size")).
+  dependsOn(nodejs).
+  enablePlugins(ScalaJSPlugin).
+  settings(commonSettings: _*).
+  settings(
+    name := "gzip-uncompressed-size",
+    organization := "io.scalajs.npm",
+    description := "glob binding for Scala.js",
+    version := "7.1.1-3"
+  )
+
 
 lazy val html_to_json = (project in file("html-to-json")).
   dependsOn(dom_html, jquery, nodejs, request).
@@ -514,7 +526,7 @@ lazy val html_to_json = (project in file("html-to-json")).
     name := "html-to-json",
     organization := "io.scalajs.npm",
     description := "html-to-json binding for Scala.js",
-    version := "0.6.0-2"
+    version := "0.6.0-3"
   )
 
 lazy val htmlparser2 = (project in file("htmlparser2")).
@@ -525,7 +537,7 @@ lazy val htmlparser2 = (project in file("htmlparser2")).
     name := "htmlparser2",
     organization := "io.scalajs.npm",
     description := "htmlparser2 binding for Scala.js",
-    version := "3.9.2-2"
+    version := "3.9.2-3"
   )
 
 lazy val jsdom = (project in file("jsdom")).
@@ -536,7 +548,7 @@ lazy val jsdom = (project in file("jsdom")).
     name := "jsdom",
     organization := "io.scalajs.npm",
     description := "jsdom binding for Scala.js",
-    version := "9.10.0-2"
+    version := "9.10.0-3"
   )
 
 lazy val jwt_simple = (project in file("jwt-simple")).
@@ -547,7 +559,7 @@ lazy val jwt_simple = (project in file("jwt-simple")).
     name := "jwt-simple",
     organization := "io.scalajs.npm",
     description := "jwt-simple binding for Scala.js",
-    version := "0.5.1-2"
+    version := "0.5.1-3"
   )
 
 lazy val kafka_node = (project in file("kafka-node")).
@@ -558,7 +570,7 @@ lazy val kafka_node = (project in file("kafka-node")).
     name := "kafka-node",
     organization := "io.scalajs.npm",
     description := "kafka-node binding for Scala.js",
-    version := "1.3.4-2"
+    version := "1.3.4-3"
   )
 
 /*
@@ -581,7 +593,7 @@ lazy val md5 = (project in file("md5")).
     name := "md5",
     organization := "io.scalajs.npm",
     description := "md5 binding for Scala.js",
-    version := "1.0.2-2"
+    version := "1.0.2-3"
   )
 
 lazy val memory_fs = (project in file("memory-fs")).
@@ -592,7 +604,7 @@ lazy val memory_fs = (project in file("memory-fs")).
     name := "memory-fs",
     organization := "io.scalajs.npm",
     description := "memory-fs binding for Scala.js",
-    version := "0.4.1-2"
+    version := "0.4.1-3"
   )
 
 lazy val minimist = (project in file("minimist")).
@@ -603,7 +615,7 @@ lazy val minimist = (project in file("minimist")).
     name := "minimist",
     organization := "io.scalajs.npm",
     description := "parse argument options.",
-    version := "1.2.0-2"
+    version := "1.2.0-3"
   )
 
 lazy val mkdirp = (project in file("mkdirp")).
@@ -614,7 +626,7 @@ lazy val mkdirp = (project in file("mkdirp")).
     name := "mkdirp",
     organization := "io.scalajs.npm",
     description := "mkdirp binding for Scala.js",
-    version := "0.5.1-2"
+    version := "0.5.1-3"
   )
 
 lazy val moment = (project in file("moment")).
@@ -625,7 +637,7 @@ lazy val moment = (project in file("moment")).
     name := "moment",
     organization := "io.scalajs.npm",
     description := "moment binding for Scala.js",
-    version := "2.17.1-2"
+    version := "2.17.1-3"
   )
 
 lazy val moment_duration_format = (project in file("moment-duration-format")).
@@ -637,7 +649,7 @@ lazy val moment_duration_format = (project in file("moment-duration-format")).
     name := "moment-duration-format",
     organization := "io.scalajs.npm",
     description := "A moment.js plugin for formatting durations.",
-    version := "1.3.0"
+    version := "1.3.0-1"
   )
 
 lazy val moment_timezone = (project in file("moment-timezone")).
@@ -649,7 +661,7 @@ lazy val moment_timezone = (project in file("moment-timezone")).
     name := "moment-timezone",
     organization := "io.scalajs.npm",
     description := "moment-timezone binding for Scala.js",
-    version := "0.5.11-2"
+    version := "0.5.11-3"
   )
 
 lazy val mongodb = (project in file("mongodb")).
@@ -661,7 +673,7 @@ lazy val mongodb = (project in file("mongodb")).
     name := "mongodb",
     organization := "io.scalajs.npm",
     description := "The official MongoDB driver for Node.js.",
-    version := "2.2.22-5"
+    version := "2.2.22-6"
   )
 
 lazy val mongoose = (project in file("mongoose")).
@@ -673,7 +685,7 @@ lazy val mongoose = (project in file("mongoose")).
     name := "mongoose",
     organization := "io.scalajs.npm",
     description := "Mongoose MongoDB ODM [Scala.js]",
-    version := "4.8.1-1"
+    version := "4.8.1-2"
   )
 
 lazy val mpromise = (project in file("mpromise")).
@@ -684,7 +696,7 @@ lazy val mpromise = (project in file("mpromise")).
     name := "mpromise",
     organization := "io.scalajs.npm",
     description := "A promises/A+ conformant implementation, written for mongoose [Scala.js]",
-    version := "0.5.5"
+    version := "0.5.5-1"
   )
 
 lazy val multer = (project in file("multer")).
@@ -695,7 +707,7 @@ lazy val multer = (project in file("multer")).
     name := "multer",
     organization := "io.scalajs.npm",
     description := "expressjs-multer binding for Scala.js",
-    version := "1.3.0-2"
+    version := "1.3.0-3"
   )
 
 lazy val mysql = (project in file("mysql")).
@@ -706,7 +718,7 @@ lazy val mysql = (project in file("mysql")).
     name := "mysql",
     organization := "io.scalajs.npm",
     description := "mysql binding for Scala.js",
-    version := "2.13.0-2"
+    version := "2.13.0-3"
   )
 
 lazy val node_zookeeper_client = (project in file("node-zookeeper-client")).
@@ -717,7 +729,7 @@ lazy val node_zookeeper_client = (project in file("node-zookeeper-client")).
     name := "node-zookeeper-client",
     organization := "io.scalajs.npm",
     description := "node-zookeeper-client binding for Scala.js",
-    version := "0.2.2-2"
+    version := "0.2.2-3"
   )
 
 lazy val numeral = (project in file("numeral")).
@@ -728,7 +740,7 @@ lazy val numeral = (project in file("numeral")).
     name := "numeral",
     organization := "io.scalajs.npm",
     description := "numeral binding for Scala.js",
-    version := "2.0.4-2"
+    version := "2.0.4-3"
   )
 
 lazy val oppressor = (project in file("oppressor")).
@@ -739,7 +751,7 @@ lazy val oppressor = (project in file("oppressor")).
     name := "oppressor",
     organization := "io.scalajs.npm",
     description := "oppressor binding for Scala.js",
-    version := "0.0.1-2"
+    version := "0.0.1-3"
   )
 
 lazy val readable_stream = (project in file("readable-stream")).
@@ -750,7 +762,7 @@ lazy val readable_stream = (project in file("readable-stream")).
     name := "readable-stream",
     organization := "io.scalajs.npm",
     description := "readable-stream binding for Scala.js",
-    version := "2.2.2-2"
+    version := "2.2.2-3"
   )
 
 lazy val request = (project in file("request")).
@@ -761,7 +773,7 @@ lazy val request = (project in file("request")).
     name := "request",
     organization := "io.scalajs.npm",
     description := "request binding for Scala.js",
-    version := "2.79.0-2"
+    version := "2.79.0-3"
   )
 
 lazy val rxjs = (project in file("rx")).
@@ -773,7 +785,7 @@ lazy val rxjs = (project in file("rx")).
     name := "rx",
     organization := "io.scalajs.npm",
     description := "rx.js binding for Scala.js",
-    version := "4.1.0-2"
+    version := "4.1.0-3"
   )
 
 /*
@@ -819,7 +831,7 @@ lazy val splitargs = (project in file("splitargs")).
     name := "splitargs",
     organization := "io.scalajs.npm",
     description := "splitargs binding for Scala.js",
-    version := "0.0.7-2"
+    version := "0.0.7-3"
   )
 
 lazy val stream_throttle = (project in file("stream-throttle")).
@@ -831,7 +843,7 @@ lazy val stream_throttle = (project in file("stream-throttle")).
     name := "stream-throttle",
     organization := "io.scalajs.npm",
     description := "stream-throttle binding for Scala.js",
-    version := "0.1.3"
+    version := "0.1.3-1"
   )
 
 lazy val throttle = (project in file("throttle")).
@@ -843,7 +855,7 @@ lazy val throttle = (project in file("throttle")).
     name := "throttle",
     organization := "io.scalajs.npm",
     description := "Node.js Transform stream that passes data through at n bytes per second",
-    version := "1.0.3"
+    version := "1.0.3-1"
   )
 
 lazy val tingodb = (project in file("tingodb")).
@@ -854,7 +866,7 @@ lazy val tingodb = (project in file("tingodb")).
     name := "tingodb",
     organization := "io.scalajs.npm",
     description := "tingodb binding for Scala.js",
-    version := "0.5.1-2"
+    version := "0.5.1-3"
   )
 
 lazy val tough_cookie = (project in file("tough-cookie")).
@@ -865,7 +877,7 @@ lazy val tough_cookie = (project in file("tough-cookie")).
     name := "tough-cookie",
     organization := "io.scalajs.npm",
     description := "tough-cookie binding for Scala.js",
-    version := "2.3.2-2"
+    version := "2.3.2-3"
   )
 
 lazy val transducers = (project in file("transducers-js")).
@@ -876,7 +888,7 @@ lazy val transducers = (project in file("transducers-js")).
     name := "transducers-js",
     organization := "io.scalajs.npm",
     description := "transducers-js binding for Scala.js",
-    version := "0.4.174-2"
+    version := "0.4.174-3"
   )
 
 lazy val type_is = (project in file("type-is")).
@@ -887,7 +899,7 @@ lazy val type_is = (project in file("type-is")).
     name := "type-is",
     organization := "io.scalajs.npm",
     description := "type-is binding for Scala.js",
-    version := "1.6.14-2"
+    version := "1.6.14-3"
   )
 
 lazy val watch = (project in file("watch")).
@@ -898,7 +910,7 @@ lazy val watch = (project in file("watch")).
     name := "watch",
     organization := "io.scalajs.npm",
     description := "watch binding for Scala.js",
-    version := "1.0.1-2"
+    version := "1.0.1-3"
   )
 
 lazy val winston = (project in file("winston")).
@@ -909,7 +921,7 @@ lazy val winston = (project in file("winston")).
     name := "winston",
     organization := "io.scalajs.npm",
     description := "winston binding for Scala.js",
-    version := "2.3.1-2"
+    version := "2.3.1-3"
   )
 
 lazy val winston_daily_rotate_file = (project in file("winston-daily-rotate-file")).
@@ -920,7 +932,7 @@ lazy val winston_daily_rotate_file = (project in file("winston-daily-rotate-file
     name := "winston-daily-rotate-file",
     organization := "io.scalajs.npm",
     description := "winston-daily-rotate-file binding for Scala.js",
-    version := "1.4.4-2"
+    version := "1.4.4-3"
   )
 
 lazy val xml2js = (project in file("xml2js")).
@@ -931,7 +943,7 @@ lazy val xml2js = (project in file("xml2js")).
     name := "xml2js",
     organization := "io.scalajs.npm",
     description := "xml2js binding for Scala.js",
-    version := "0.4.17-2"
+    version := "0.4.17-3"
   )
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -970,18 +982,19 @@ lazy val complete_platform = (project in file("bundles/complete")).
     // npm packages
     async, bcrypt, bignum, body_parser, brake, buffermaker, cassandra_driver, chalk, cheerio,
     colors, cookie, cookie_parser, csv_parse, csvtojson, drama, escape_html,
-    express, express_csv, express_fileupload, express_ws, feedparser, filed, glob,
-    html_to_json, htmlparser2, jsdom, jwt_simple, kafka_node, /*kafka_rest,*/
+    express, express_csv, express_fileupload, express_ws, feedparser, filed, github_api_node,
+    glob, gzip_uncompressed_size, html_to_json, htmlparser2, jsdom, jwt_simple, kafka_node, /*kafka_rest,*/
     md5, memory_fs, mkdirp, moment, moment_timezone, mongodb, mongoose, mpromise, multer, mysql, node_zookeeper_client,
     numeral, oppressor, readable_stream, request, rxjs, /*should, socketio_client, socketio_server,*/ splitargs,
-    stream_throttle, tingodb, tough_cookie, transducers, type_is, watch, winston, winston_daily_rotate_file, xml2js).
+    stream_throttle, throttle, tingodb, tough_cookie, transducers, type_is,
+    watch, winston, winston_daily_rotate_file, xml2js).
   dependsOn(
     core, dom_html, jquery, nodejs, phaser, pixijs, facebook, linkedin, angular_platform, mean_stack,
     // npm packages
     async, bcrypt, bignum, body_parser, brake, buffermaker, cassandra_driver, chalk, cheerio,
     colors, cookie, cookie_parser, csv_parse, csvtojson, drama, escape_html,
-    express, express_csv, express_fileupload, express_ws, feedparser, filed, glob,
-    html_to_json, htmlparser2, jsdom, jwt_simple, kafka_node, /*kafka_rest,*/
+    express, express_csv, express_fileupload, express_ws, feedparser, filed, github_api_node,
+    glob, gzip_uncompressed_size, html_to_json, htmlparser2, jsdom, jwt_simple, kafka_node, /*kafka_rest,*/
     md5, memory_fs, mkdirp, moment, moment_timezone, mongodb, mongoose, mpromise, multer, mysql, node_zookeeper_client,
     numeral, oppressor, readable_stream, request, rxjs, /*should, socketio_client, socketio_server,*/ splitargs,
     stream_throttle, throttle, tingodb, tough_cookie, transducers, type_is,
@@ -997,11 +1010,11 @@ lazy val complete_platform = (project in file("bundles/complete")).
 
 lazy val angular_platform = (project in file("bundles/angularjs")).
   aggregate(
-    angular, angular_anchorScroll, angular_animate, angular_cookies, angular_facebook, angular_md5,
-    angular_file_upload, angular_nvd3, angular_sanitize, angular_toaster, angular_ui_bootstrap, angular_ui_router).
+    angular, angular_anchorScroll, angular_animate, angular_cookies, angular_facebook, angular_file_upload,
+    angular_md5, angular_nvd3, angular_sanitize, angularjs_toaster, angular_ui_bootstrap, angular_ui_router).
   dependsOn(
-    angular, angular_anchorScroll, angular_animate, angular_cookies, angular_facebook, angular_md5,
-    angular_file_upload, angular_nvd3, angular_sanitize, angular_toaster, angular_ui_bootstrap, angular_ui_router).
+    angular, angular_anchorScroll, angular_animate, angular_cookies, angular_facebook, angular_file_upload,
+    angular_md5, angular_nvd3, angular_sanitize, angularjs_toaster, angular_ui_bootstrap, angular_ui_router).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings: _*).
   settings(publishingSettings: _*).

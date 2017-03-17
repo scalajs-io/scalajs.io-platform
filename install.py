@@ -45,7 +45,7 @@ def makeSymbolicLinks(repoName):
 #       Initial Setup
 #################################################################################################
 
-version = "0.3.0.6"
+version = "0.3.0.7"
 
 # define the directory for all repositories
 repo_cache = "../_repos"
@@ -58,9 +58,9 @@ repoNames = """angular angular-cookies angular-md5 angularjs-toaster angular-anc
             angular-nvd3 angular-ui-bootstrap angular-animate angular-file-upload angular-sanitize 
             angular-ui-router async bcrypt bignum body-parser brake buffermaker
             cassandra-driver chalk cheerio colors cookie cookie-parser core csv-parse
-            csvtojson drama dom-html escape-html express express-csv express-fileupload express-ws
-            facebook-api feedparser-promised filed github-api-node glob html-to-json htmlparser2
-            jquery jsdom jwt-simple kafka-node linkedin-api md5 memory-fs minimist mkdirp 
+            csvtojson dom-html drama escape-html express express-csv express-fileupload express-ws
+            facebook-api feedparser-promised filed github-api-node glob gzip-uncompressed-size 
+            html-to-json htmlparser2 jquery jsdom jwt-simple kafka-node linkedin-api md5 memory-fs minimist mkdirp 
             moment moment-duration-format moment-timezone mongodb mongoose mpromise multer mysql 
             node-zookeeper-client nodejs numeral oppressor phaser pixijs readable-stream request rx 
             splitargs stream-throttle throttle tingodb tough-cookie transducers-js type-is 
