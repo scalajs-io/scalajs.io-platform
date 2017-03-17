@@ -87,8 +87,8 @@ lazy val phaser = (project in file("phaser")).
   settings(
     name := "phaser",
     organization := "io.scalajs",
-    description := "Phaser 3.x bindings for Scala.js",
-    version := "2.6.2-3"
+    description := "Phaser 2.6.x bindings for Scala.js",
+    version := "2.6.2-4"
   )
 
 lazy val pixijs = (project in file("pixijs")).
