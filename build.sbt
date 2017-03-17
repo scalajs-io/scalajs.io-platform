@@ -179,7 +179,7 @@ lazy val angular_file_upload = (project in file("angular-file-upload")).
   settings(
     name := "angular-file-upload",
     organization := "io.scalajs.npm",
-    description := "angular-file-upload binding for Scala.js",
+    description := "AngularJS/fileupload binding for Scala.js",
     version := "2.5.0"
   )
 
