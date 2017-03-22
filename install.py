@@ -45,7 +45,7 @@ def makeSymbolicLinks(repoName):
 #       Initial Setup
 #################################################################################################
 
-version = "0.3.0.8"
+version = "0.4.0-pre1"
 
 # define the directory for all repositories
 repo_cache = "../_repos"
