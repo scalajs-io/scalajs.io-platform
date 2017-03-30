@@ -6,7 +6,7 @@ import sbt._
 
 import scala.language.postfixOps
 
-val apiVersion = "0.4.0-pre1"
+val apiVersion = "0.4.0-pre2"
 val angularVersion = apiVersion
 val scalaJsVersion = "2.12.1"
 //val scalaJsVersion = "2.11.8"
@@ -570,6 +570,18 @@ lazy val htmlparser2 = (project in file("htmlparser2")).
     version := apiVersion
   )
 
+lazy val ip = (project in file("ip")).
+  dependsOn(nodejs).
+  enablePlugins(ScalaJSPlugin).
+  settings(commonSettings: _*).
+  settings(publishingSettings: _*).
+  settings(
+    name := "ip",
+    organization := "io.scalajs.npm",
+    description := "IP address utilities for node.js",
+    version := apiVersion
+  )
+
 lazy val jsdom = (project in file("jsdom")).
   dependsOn(nodejs, dom_html, jquery).
   enablePlugins(ScalaJSPlugin).
@@ -1024,7 +1036,7 @@ lazy val complete_platform = (project in file("bundles/complete")).
     async, bcrypt, bignum, body_parser, brake, buffermaker, cassandra_driver, chalk, cheerio,
     colors, cookie, cookie_parser, csv_parse, csvtojson, drama, escape_html,
     express, express_csv, express_fileupload, express_ws, feedparser, filed, github_api_node,
-    glob, gzip_uncompressed_size, html_to_json, htmlparser2, jsdom, jwt_simple, kafka_node, /*kafka_rest,*/
+    glob, gzip_uncompressed_size, html_to_json, htmlparser2, ip, jsdom, jwt_simple, kafka_node, /*kafka_rest,*/
     md5, memory_fs, mkdirp, moment, moment_duration_format, moment_range, moment_timezone,
     mongodb, mongoose, mpromise, multer, mysql, node_zookeeper_client,
     numeral, oppressor, readable_stream, request, rxjs, /*should, socketio_client, socketio_server,*/ splitargs,
@@ -1036,7 +1048,7 @@ lazy val complete_platform = (project in file("bundles/complete")).
     async, bcrypt, bignum, body_parser, brake, buffermaker, cassandra_driver, chalk, cheerio,
     colors, cookie, cookie_parser, csv_parse, csvtojson, drama, escape_html,
     express, express_csv, express_fileupload, express_ws, feedparser, filed, github_api_node,
-    glob, gzip_uncompressed_size, html_to_json, htmlparser2, jsdom, jwt_simple, kafka_node, /*kafka_rest,*/
+    glob, gzip_uncompressed_size, html_to_json, htmlparser2, ip, jsdom, jwt_simple, kafka_node, /*kafka_rest,*/
     md5, memory_fs, mkdirp, moment, moment_duration_format, moment_range, moment_timezone,
     mongodb, mongoose, mpromise, multer, mysql, node_zookeeper_client,
     numeral, oppressor, readable_stream, request, rxjs, /*should, socketio_client, socketio_server,*/ splitargs,
