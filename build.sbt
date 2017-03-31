@@ -6,7 +6,7 @@ import sbt._
 
 import scala.language.postfixOps
 
-val apiVersion = "0.4.0-pre2"
+val apiVersion = "0.4.0-pre3"
 val angularVersion = apiVersion
 val scalaJsVersion = "2.12.1"
 //val scalaJsVersion = "2.11.8"
@@ -34,7 +34,7 @@ val commonSettings = Seq(
 
 lazy val core = (project in file("core")).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "core",
     organization := "io.scalajs",
@@ -45,7 +45,7 @@ lazy val core = (project in file("core")).
 lazy val dom_html = (project in file("dom-html")).
   dependsOn(core).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "dom-html",
     organization := "io.scalajs",
@@ -56,8 +56,7 @@ lazy val dom_html = (project in file("dom-html")).
 lazy val nodejs = (project in file("nodejs")).
   dependsOn(core).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
-  settings(publishingSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "nodejs",
     organization := "io.scalajs",
@@ -68,7 +67,7 @@ lazy val nodejs = (project in file("nodejs")).
 lazy val build_tools = (project in file("build_tools")).
   dependsOn(nodejs, glob).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "build-verification",
     organization := "io.scalajs.tools",
@@ -83,7 +82,7 @@ lazy val build_tools = (project in file("build_tools")).
 lazy val jquery = (project in file("jquery")).
   dependsOn(core, dom_html).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "jquery",
     organization := "io.scalajs",
@@ -94,7 +93,7 @@ lazy val jquery = (project in file("jquery")).
 lazy val phaser = (project in file("phaser")).
   dependsOn(core, dom_html, pixijs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "phaser",
     organization := "io.scalajs",
@@ -105,7 +104,7 @@ lazy val phaser = (project in file("phaser")).
 lazy val pixijs = (project in file("pixijs")).
   dependsOn(core, dom_html).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "pixijs",
     organization := "io.scalajs",
@@ -120,7 +119,7 @@ lazy val pixijs = (project in file("pixijs")).
 lazy val angular = (project in file("angular")).
   dependsOn(core, dom_html, jquery).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "angular",
     organization := "io.scalajs.npm",
@@ -131,7 +130,7 @@ lazy val angular = (project in file("angular")).
 lazy val angular_anchorScroll = (project in file("angular-anchor-scroll")).
   dependsOn(angular).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "angular-anchor-scroll",
     organization := "io.scalajs.npm",
@@ -142,7 +141,7 @@ lazy val angular_anchorScroll = (project in file("angular-anchor-scroll")).
 lazy val angular_animate = (project in file("angular-animate")).
   dependsOn(angular).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "angular-animate",
     organization := "io.scalajs.npm",
@@ -153,7 +152,7 @@ lazy val angular_animate = (project in file("angular-animate")).
 lazy val angular_cookies = (project in file("angular-cookies")).
   dependsOn(angular).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "angular-cookies",
     organization := "io.scalajs.npm",
@@ -164,7 +163,7 @@ lazy val angular_cookies = (project in file("angular-cookies")).
 lazy val angular_facebook = (project in file("angular-facebook")).
   dependsOn(angular, facebook).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "angular-facebook",
     organization := "io.scalajs.npm",
@@ -175,7 +174,7 @@ lazy val angular_facebook = (project in file("angular-facebook")).
 lazy val angular_md5 = (project in file("angular-md5")).
   dependsOn(angular).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "angular-md5",
     organization := "io.scalajs.npm",
@@ -186,7 +185,7 @@ lazy val angular_md5 = (project in file("angular-md5")).
 lazy val angular_file_upload = (project in file("angular-file-upload")).
   dependsOn(angular).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "angular-file-upload",
     organization := "io.scalajs.npm",
@@ -197,7 +196,7 @@ lazy val angular_file_upload = (project in file("angular-file-upload")).
 lazy val angular_nvd3 = (project in file("angular-nvd3")).
   dependsOn(angular).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "angular-nvd3",
     organization := "io.scalajs.npm",
@@ -208,7 +207,7 @@ lazy val angular_nvd3 = (project in file("angular-nvd3")).
 lazy val angular_sanitize = (project in file("angular-sanitize")).
   dependsOn(angular).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "angular-sanitize",
     organization := "io.scalajs.npm",
@@ -219,7 +218,7 @@ lazy val angular_sanitize = (project in file("angular-sanitize")).
 lazy val angular_ui_bootstrap = (project in file("angular-ui-bootstrap")).
   dependsOn(angular).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "angular-ui-bootstrap",
     organization := "io.scalajs.npm",
@@ -230,7 +229,7 @@ lazy val angular_ui_bootstrap = (project in file("angular-ui-bootstrap")).
 lazy val angular_ui_router = (project in file("angular-ui-router")).
   dependsOn(angular).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "angular-ui-router",
     organization := "io.scalajs.npm",
@@ -241,7 +240,7 @@ lazy val angular_ui_router = (project in file("angular-ui-router")).
 lazy val angularjs_toaster = (project in file("angularjs-toaster")).
   dependsOn(angular).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "angularjs-toaster",
     organization := "io.scalajs.npm",
@@ -257,7 +256,7 @@ lazy val angular_platform = (project in file("bundles/angularjs")).
     angular, angular_anchorScroll, angular_animate, angular_cookies, angular_facebook, angular_file_upload,
     angular_md5, angular_nvd3, angular_sanitize, angularjs_toaster, angular_ui_bootstrap, angular_ui_router).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(publishingSettings: _*).
   settings(
     name := "angular-bundle",
@@ -273,7 +272,7 @@ lazy val angular_platform = (project in file("bundles/angularjs")).
 lazy val async = (project in file("async")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "async",
     organization := "io.scalajs.npm",
@@ -281,10 +280,21 @@ lazy val async = (project in file("async")).
     version := apiVersion
   )
 
+lazy val aws_s3 = (project in file("aws-s3")).
+  dependsOn(nodejs).
+  enablePlugins(ScalaJSPlugin).
+  settings(commonSettings ++ publishingSettings: _*).
+  settings(
+    name := "aws-s3",
+    organization := "io.scalajs.npm",
+    description := "aws-s3 binding for Scala.js",
+    version := apiVersion
+  )
+
 lazy val bcrypt = (project in file("bcrypt")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "bcrypt",
     organization := "io.scalajs.npm",
@@ -295,7 +305,7 @@ lazy val bcrypt = (project in file("bcrypt")).
 lazy val bignum = (project in file("bignum")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "bignum",
     organization := "io.scalajs.npm",
@@ -306,7 +316,7 @@ lazy val bignum = (project in file("bignum")).
 lazy val body_parser = (project in file("body-parser")).
   dependsOn(nodejs, express).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "body-parser",
     organization := "io.scalajs.npm",
@@ -317,7 +327,7 @@ lazy val body_parser = (project in file("body-parser")).
 lazy val brake = (project in file("brake")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "brake",
     organization := "io.scalajs.npm",
@@ -328,7 +338,7 @@ lazy val brake = (project in file("brake")).
 lazy val buffermaker = (project in file("buffermaker")).
   dependsOn(nodejs, bignum).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(publishingSettings: _*).
   settings(
     name := "buffermaker",
@@ -340,7 +350,7 @@ lazy val buffermaker = (project in file("buffermaker")).
 lazy val cassandra_driver = (project in file("cassandra-driver")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "cassandra-driver",
     organization := "io.scalajs.npm",
@@ -351,7 +361,7 @@ lazy val cassandra_driver = (project in file("cassandra-driver")).
 lazy val chalk = (project in file("chalk")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "chalk",
     organization := "io.scalajs.npm",
@@ -362,7 +372,7 @@ lazy val chalk = (project in file("chalk")).
 lazy val cheerio = (project in file("cheerio")).
   dependsOn(dom_html, jquery, nodejs, htmlparser2).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "cheerio",
     organization := "io.scalajs.npm",
@@ -373,7 +383,7 @@ lazy val cheerio = (project in file("cheerio")).
 lazy val colors = (project in file("colors")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "colors",
     organization := "io.scalajs.npm",
@@ -384,7 +394,7 @@ lazy val colors = (project in file("colors")).
 lazy val cookie = (project in file("cookie")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "cookie",
     organization := "io.scalajs.npm",
@@ -395,7 +405,7 @@ lazy val cookie = (project in file("cookie")).
 lazy val cookie_parser = (project in file("cookie-parser")).
   dependsOn(nodejs, cookie, express).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "cookie-parser",
     organization := "io.scalajs.npm",
@@ -406,8 +416,7 @@ lazy val cookie_parser = (project in file("cookie-parser")).
 lazy val csv_parse = (project in file("csv-parse")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
-  settings(publishingSettings: _ *).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "csv-parse",
     organization := "io.scalajs.npm",
@@ -418,7 +427,7 @@ lazy val csv_parse = (project in file("csv-parse")).
 lazy val csvtojson = (project in file("csvtojson")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "csvtojson",
     organization := "io.scalajs.npm",
@@ -429,7 +438,7 @@ lazy val csvtojson = (project in file("csvtojson")).
 lazy val drama = (project in file("drama")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "drama",
     organization := "io.scalajs.npm",
@@ -440,7 +449,7 @@ lazy val drama = (project in file("drama")).
 lazy val escape_html = (project in file("escape-html")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "escape-html",
     organization := "io.scalajs.npm",
@@ -451,7 +460,7 @@ lazy val escape_html = (project in file("escape-html")).
 lazy val express = (project in file("express")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "express",
     organization := "io.scalajs.npm",
@@ -462,7 +471,7 @@ lazy val express = (project in file("express")).
 lazy val express_csv = (project in file("express-csv")).
   dependsOn(express).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "express-csv",
     organization := "io.scalajs.npm",
@@ -473,7 +482,7 @@ lazy val express_csv = (project in file("express-csv")).
 lazy val express_fileupload = (project in file("express-fileupload")).
   dependsOn(express).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "express-fileupload",
     organization := "io.scalajs.npm",
@@ -484,7 +493,7 @@ lazy val express_fileupload = (project in file("express-fileupload")).
 lazy val express_ws = (project in file("express-ws")).
   dependsOn(express).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "express-ws",
     organization := "io.scalajs.npm",
@@ -495,7 +504,7 @@ lazy val express_ws = (project in file("express-ws")).
 lazy val feedparser = (project in file("feedparser-promised")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "feedparser-promised",
     organization := "io.scalajs.npm",
@@ -506,7 +515,7 @@ lazy val feedparser = (project in file("feedparser-promised")).
 lazy val filed = (project in file("filed")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "filed",
     organization := "io.scalajs.npm",
@@ -517,7 +526,7 @@ lazy val filed = (project in file("filed")).
 lazy val github_api_node = (project in file("github-api-node")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "github-api-node",
     organization := "io.scalajs.npm",
@@ -528,7 +537,7 @@ lazy val github_api_node = (project in file("github-api-node")).
 lazy val glob = (project in file("glob")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "glob",
     organization := "io.scalajs.npm",
@@ -539,7 +548,7 @@ lazy val glob = (project in file("glob")).
 lazy val gzip_uncompressed_size = (project in file("gzip-uncompressed-size")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(publishingSettings: _*).
   settings(
     name := "gzip-uncompressed-size",
@@ -551,7 +560,7 @@ lazy val gzip_uncompressed_size = (project in file("gzip-uncompressed-size")).
 lazy val html_to_json = (project in file("html-to-json")).
   dependsOn(dom_html, jquery, nodejs, request).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "html-to-json",
     organization := "io.scalajs.npm",
@@ -562,7 +571,7 @@ lazy val html_to_json = (project in file("html-to-json")).
 lazy val htmlparser2 = (project in file("htmlparser2")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "htmlparser2",
     organization := "io.scalajs.npm",
@@ -573,7 +582,7 @@ lazy val htmlparser2 = (project in file("htmlparser2")).
 lazy val ip = (project in file("ip")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(publishingSettings: _*).
   settings(
     name := "ip",
@@ -585,7 +594,7 @@ lazy val ip = (project in file("ip")).
 lazy val jsdom = (project in file("jsdom")).
   dependsOn(nodejs, dom_html, jquery).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "jsdom",
     organization := "io.scalajs.npm",
@@ -596,7 +605,7 @@ lazy val jsdom = (project in file("jsdom")).
 lazy val jwt_simple = (project in file("jwt-simple")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "jwt-simple",
     organization := "io.scalajs.npm",
@@ -607,7 +616,7 @@ lazy val jwt_simple = (project in file("jwt-simple")).
 lazy val kafka_node = (project in file("kafka-node")).
   dependsOn(nodejs, node_zookeeper_client).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "kafka-node",
     organization := "io.scalajs.npm",
@@ -619,7 +628,7 @@ lazy val kafka_node = (project in file("kafka-node")).
 lazy val kafka_rest = (project in file("kafka-rest")).
   dependsOn(nodejs, node_zookeeper_client).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "kafka-rest",
     organization := "io.scalajs.npm",
@@ -630,7 +639,7 @@ lazy val kafka_rest = (project in file("kafka-rest")).
 lazy val md5 = (project in file("md5")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "md5",
     organization := "io.scalajs.npm",
@@ -641,7 +650,7 @@ lazy val md5 = (project in file("md5")).
 lazy val memory_fs = (project in file("memory-fs")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "memory-fs",
     organization := "io.scalajs.npm",
@@ -652,7 +661,7 @@ lazy val memory_fs = (project in file("memory-fs")).
 lazy val minimist = (project in file("minimist")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "minimist",
     organization := "io.scalajs.npm",
@@ -663,7 +672,7 @@ lazy val minimist = (project in file("minimist")).
 lazy val mkdirp = (project in file("mkdirp")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "mkdirp",
     organization := "io.scalajs.npm",
@@ -674,7 +683,7 @@ lazy val mkdirp = (project in file("mkdirp")).
 lazy val moment = (project in file("moment")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "moment",
     organization := "io.scalajs.npm",
@@ -685,7 +694,7 @@ lazy val moment = (project in file("moment")).
 lazy val moment_duration_format = (project in file("moment-duration-format")).
   dependsOn(nodejs, moment).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(publishingSettings: _*).
   settings(
     name := "moment-duration-format",
@@ -697,7 +706,7 @@ lazy val moment_duration_format = (project in file("moment-duration-format")).
 lazy val moment_range = (project in file("moment-range")).
   dependsOn(nodejs, moment).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "moment-range",
     organization := "io.scalajs.npm",
@@ -708,7 +717,7 @@ lazy val moment_range = (project in file("moment-range")).
 lazy val moment_timezone = (project in file("moment-timezone")).
   dependsOn(nodejs, moment).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(publishingSettings: _*).
   settings(
     name := "moment-timezone",
@@ -720,7 +729,7 @@ lazy val moment_timezone = (project in file("moment-timezone")).
 lazy val mongodb = (project in file("mongodb")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(publishingSettings: _*).
   settings(
     name := "mongodb",
@@ -732,7 +741,7 @@ lazy val mongodb = (project in file("mongodb")).
 lazy val mongoose = (project in file("mongoose")).
   dependsOn(nodejs, mongodb, mpromise).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(publishingSettings: _*).
   settings(
     name := "mongoose",
@@ -744,7 +753,7 @@ lazy val mongoose = (project in file("mongoose")).
 lazy val mpromise = (project in file("mpromise")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "mpromise",
     organization := "io.scalajs.npm",
@@ -755,7 +764,7 @@ lazy val mpromise = (project in file("mpromise")).
 lazy val multer = (project in file("multer")).
   dependsOn(express).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "multer",
     organization := "io.scalajs.npm",
@@ -766,7 +775,7 @@ lazy val multer = (project in file("multer")).
 lazy val mysql = (project in file("mysql")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "mysql",
     organization := "io.scalajs.npm",
@@ -777,7 +786,7 @@ lazy val mysql = (project in file("mysql")).
 lazy val node_zookeeper_client = (project in file("node-zookeeper-client")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "node-zookeeper-client",
     organization := "io.scalajs.npm",
@@ -788,7 +797,7 @@ lazy val node_zookeeper_client = (project in file("node-zookeeper-client")).
 lazy val numeral = (project in file("numeral")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "numeral",
     organization := "io.scalajs.npm",
@@ -799,7 +808,7 @@ lazy val numeral = (project in file("numeral")).
 lazy val oppressor = (project in file("oppressor")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "oppressor",
     organization := "io.scalajs.npm",
@@ -807,10 +816,21 @@ lazy val oppressor = (project in file("oppressor")).
     version := apiVersion
   )
 
-lazy val readable_stream = (project in file("readable-stream")).
-  dependsOn(nodejs, tough_cookie).
+lazy val otaat_repl = (project in file("otaat-repl")).
+  dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
+  settings(
+    name := "otaat-repl",
+    organization := "io.scalajs.npm",
+    description := "A node.js REPL that helps you do \"One thing at a time\"",
+    version := apiVersion
+  )
+
+lazy val readable_stream = (project in file("readable-stream")).
+  dependsOn(nodejs).
+  enablePlugins(ScalaJSPlugin).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "readable-stream",
     organization := "io.scalajs.npm",
@@ -818,10 +838,21 @@ lazy val readable_stream = (project in file("readable-stream")).
     version := apiVersion
   )
 
+lazy val redis = (project in file("redis")).
+  dependsOn(nodejs).
+  enablePlugins(ScalaJSPlugin).
+  settings(commonSettings ++ publishingSettings: _*).
+  settings(
+    name := "redis",
+    organization := "io.scalajs.npm",
+    description := "This is a complete and feature rich Redis client for node.js",
+    version := apiVersion
+  )
+
 lazy val request = (project in file("request")).
   dependsOn(nodejs, tough_cookie).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "request",
     organization := "io.scalajs.npm",
@@ -833,7 +864,7 @@ lazy val rxjs = (project in file("rx")).
   aggregate(transducers).
   dependsOn(nodejs, transducers).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "rx",
     organization := "io.scalajs.npm",
@@ -845,7 +876,7 @@ lazy val rxjs = (project in file("rx")).
 lazy val should = (project in file("should")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "should",
     organization := "io.scalajs.npm",
@@ -857,7 +888,7 @@ lazy val should = (project in file("should")).
 lazy val socketio_client = (project in file("socket.io/client")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "socket.io-client",
     organization := "io.scalajs.npm",
@@ -868,7 +899,7 @@ lazy val socketio_client = (project in file("socket.io/client")).
 lazy val socketio_server = (project in file("socket.io/server")).
   dependsOn(nodejs, socketio_client, express).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "socket.io-server",
     organization := "io.scalajs.npm",
@@ -879,7 +910,7 @@ lazy val socketio_server = (project in file("socket.io/server")).
 lazy val splitargs = (project in file("splitargs")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "splitargs",
     organization := "io.scalajs.npm",
@@ -890,8 +921,7 @@ lazy val splitargs = (project in file("splitargs")).
 lazy val stream_throttle = (project in file("stream-throttle")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
-  settings(publishingSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "stream-throttle",
     organization := "io.scalajs.npm",
@@ -902,8 +932,7 @@ lazy val stream_throttle = (project in file("stream-throttle")).
 lazy val throttle = (project in file("throttle")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
-  settings(publishingSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "throttle",
     organization := "io.scalajs.npm",
@@ -914,7 +943,7 @@ lazy val throttle = (project in file("throttle")).
 lazy val tingodb = (project in file("tingodb")).
   dependsOn(nodejs, mongodb).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "tingodb",
     organization := "io.scalajs.npm",
@@ -925,7 +954,7 @@ lazy val tingodb = (project in file("tingodb")).
 lazy val tough_cookie = (project in file("tough-cookie")).
   dependsOn(nodejs, mongodb).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "tough-cookie",
     organization := "io.scalajs.npm",
@@ -936,7 +965,7 @@ lazy val tough_cookie = (project in file("tough-cookie")).
 lazy val transducers = (project in file("transducers-js")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "transducers-js",
     organization := "io.scalajs.npm",
@@ -947,7 +976,7 @@ lazy val transducers = (project in file("transducers-js")).
 lazy val type_is = (project in file("type-is")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "type-is",
     organization := "io.scalajs.npm",
@@ -958,7 +987,7 @@ lazy val type_is = (project in file("type-is")).
 lazy val watch = (project in file("watch")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "watch",
     organization := "io.scalajs.npm",
@@ -969,7 +998,7 @@ lazy val watch = (project in file("watch")).
 lazy val winston = (project in file("winston")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "winston",
     organization := "io.scalajs.npm",
@@ -980,7 +1009,7 @@ lazy val winston = (project in file("winston")).
 lazy val winston_daily_rotate_file = (project in file("winston-daily-rotate-file")).
   dependsOn(nodejs, winston).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "winston-daily-rotate-file",
     organization := "io.scalajs.npm",
@@ -991,7 +1020,7 @@ lazy val winston_daily_rotate_file = (project in file("winston-daily-rotate-file
 lazy val xml2js = (project in file("xml2js")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "xml2js",
     organization := "io.scalajs.npm",
@@ -1006,7 +1035,7 @@ lazy val xml2js = (project in file("xml2js")).
 lazy val facebook = (project in file("facebook-api")).
   dependsOn(core).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "facebook-api",
     organization := "io.scalajs",
@@ -1017,7 +1046,7 @@ lazy val facebook = (project in file("facebook-api")).
 lazy val linkedin = (project in file("linkedin-api")).
   dependsOn(core).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "linkedin-api",
     organization := "io.scalajs",
@@ -1033,30 +1062,29 @@ lazy val complete_platform = (project in file("bundles/complete")).
   aggregate(
     core, dom_html, jquery, nodejs, phaser, pixijs, facebook, linkedin, angular_platform, mean_stack,
     // npm packages
-    async, bcrypt, bignum, body_parser, brake, buffermaker, cassandra_driver, chalk, cheerio,
+    async, aws_s3, bcrypt, bignum, body_parser, brake, buffermaker, cassandra_driver, chalk, cheerio,
     colors, cookie, cookie_parser, csv_parse, csvtojson, drama, escape_html,
     express, express_csv, express_fileupload, express_ws, feedparser, filed, github_api_node,
     glob, gzip_uncompressed_size, html_to_json, htmlparser2, ip, jsdom, jwt_simple, kafka_node, /*kafka_rest,*/
     md5, memory_fs, mkdirp, moment, moment_duration_format, moment_range, moment_timezone,
     mongodb, mongoose, mpromise, multer, mysql, node_zookeeper_client,
-    numeral, oppressor, readable_stream, request, rxjs, /*should, socketio_client, socketio_server,*/ splitargs,
+    numeral, oppressor, otaat_repl, readable_stream, redis, request, rxjs, /*should, socketio_client, socketio_server,*/ splitargs,
     stream_throttle, throttle, tingodb, tough_cookie, transducers, type_is,
     watch, winston, winston_daily_rotate_file, xml2js).
   dependsOn(
     core, dom_html, jquery, nodejs, phaser, pixijs, facebook, linkedin, angular_platform, mean_stack,
     // npm packages
-    async, bcrypt, bignum, body_parser, brake, buffermaker, cassandra_driver, chalk, cheerio,
+    async, aws_s3, bcrypt, bignum, body_parser, brake, buffermaker, cassandra_driver, chalk, cheerio,
     colors, cookie, cookie_parser, csv_parse, csvtojson, drama, escape_html,
     express, express_csv, express_fileupload, express_ws, feedparser, filed, github_api_node,
     glob, gzip_uncompressed_size, html_to_json, htmlparser2, ip, jsdom, jwt_simple, kafka_node, /*kafka_rest,*/
     md5, memory_fs, mkdirp, moment, moment_duration_format, moment_range, moment_timezone,
     mongodb, mongoose, mpromise, multer, mysql, node_zookeeper_client,
-    numeral, oppressor, readable_stream, request, rxjs, /*should, socketio_client, socketio_server,*/ splitargs,
+    numeral, oppressor, otaat_repl, readable_stream, redis, request, rxjs, /*should, socketio_client, socketio_server,*/ splitargs,
     stream_throttle, throttle, tingodb, tough_cookie, transducers, type_is,
     watch, winston, winston_daily_rotate_file, xml2js).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
-  settings(publishingSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "complete-platform",
     organization := "io.scalajs",
@@ -1067,8 +1095,7 @@ lazy val mean_stack = (project in file("bundles/mean_stack")).
   aggregate(nodejs, body_parser, express, mongodb).
   dependsOn(nodejs, body_parser, express, mongodb).
   enablePlugins(ScalaJSPlugin).
-  settings(commonSettings: _*).
-  settings(publishingSettings: _*).
+  settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "mean-stack",
     organization := "io.scalajs.npm",
