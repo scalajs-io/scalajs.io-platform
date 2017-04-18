@@ -48,6 +48,7 @@ This project is used for locally building and publishing all components of the S
 | net                   | The net module provides you with an asynchronous network wrapper. |
 | os                    | Provides a few basic operating-system related utility functions. |
 | path                  | This module contains utilities for handling and transforming file paths. |
+| punycode              | Punycode is a character encoding scheme defined by RFC 3492 that is primarily intended for use in Internationalized Domain Names. |
 | querystring           | The querystring module provides utilities for parsing and formatting URL query strings. |
 | readline              | Readline allows reading of a stream on a line-by-line basis. |
 | repl                  | The REPL provides a way to interactively run JavaScript and see the results. | 
@@ -66,14 +67,15 @@ This project is used for locally building and publishing all components of the S
 | Module / Package                                                                      | Version | Description                                             |
 |---------------------------------------------------------------------------------------|---------|---------------------------------------------------------|
 | [async](https://github.com/scalajs-io/async)                                          | 2.0.0   | Higher-order functions and common patterns for asynchronous code. |
+| [aws-s3](https://github.com/scalajs-io/aws-s3)                                        | 2.41.0  | AWS S3-binding for Scala.js |
 | [bcrypt](https://github.com/scalajs-io/bcrypt)                                        | 0.0.3   | A native JS bcrypt library for NodeJS. |
 | [bignum](https://github.com/scalajs-io/bignum)                                        | 0.12.5  | Arbitrary-precision integer arithmetic using OpenSSL. |
 | [body-parser](https://github.com/scalajs-io/body-parser)                              | 1.15.1  | Body parsing middleware. |
 | [brake](https://github.com/scalajs-io/brake)                                          | 1.0.1   | Throttle a stream with backpressure. |
 | [buffermaker](https://github.com/scalajs-io/buffermaker)                              | 1.2.0   | buffermaker is a convenient way of creating binary strings. |
 | [cassandra-driver](https://github.com/scalajs-io/cassandra-driver)                    | 3.0.2   | DataStax Node.js Driver for Apache Cassandra |
-| [cheerio](https://github.com/scalajs-io/cheerio)                                      | 0.22.0  | Tiny, fast, and elegant implementation of core jQuery designed specifically for the server |
 | [chalk](https://github.com/scalajs-io/chalk)                                          | 1.1.3   | Terminal string styling done right. Much color. |
+| [cheerio](https://github.com/scalajs-io/cheerio)                                      | 0.22.0  | Tiny, fast, and elegant implementation of core jQuery designed specifically for the server |
 | [cookie](https://github.com/scalajs-io/cookie)                                        | 0.3.1   | HTTP server cookie parsing and serialization |
 | [cookie-parser](https://github.com/scalajs-io/cookie-parser)                          | 1.4.3   | Cookie parsing with signatures |
 | [colors](https://github.com/scalajs-io/colors)                                        | 1.1.2   | Get colors in your node.js console.|
@@ -92,10 +94,11 @@ This project is used for locally building and publishing all components of the S
 | [gzip-uncompressed-size](https://github.com/scalajs-io/gzip-uncompressed-size)        | 1.0.0   | Determine the estimated uncompressed size from a GZIP file (uses ISIZE). |
 | [html-to-json](https://github.com/scalajs-io/html-to-json)                            | 0.6.0   | Parses HTML strings into objects using flexible, composable filters. |
 | [htmlparser2](https://github.com/scalajs-io/htmlparser2)                              | 3.9.1   | A forgiving HTML/XML/RSS parser. The parser can handle streams and provides a callback interface. |
+| [ip](https://github.com/scalajs-io/ip)                                                | 1.1.5   | IP address utilities for node.js. |
 | [jsdom](https://github.com/scalajs-io/jsdom)                                          | 9.9.1   | A JavaScript implementation of the WHATWG DOM and HTML standards, for use with Node.js |
 | [jwt-simple](https://github.com/scalajs-io/jwt-simple)                                | 0.5.0   | JWT(JSON Web Token) encode and decode module |
-| [kafka-node](https://github.com/scalajs-io/kafka-node)                                | 0.0.11  | A node binding for librdkafka | Tesing required |
-| [kafka-rest](https://github.com/scalajs-io/kafka-rest)                                | 0.0.4   | REST Proxy wrapper library for Kafka | Tesing required |
+| [kafka-node](https://github.com/scalajs-io/kafka-node)                                | 0.0.11  | A node binding for librdkafka |
+| [kafka-rest](https://github.com/scalajs-io/kafka-rest)                                | 0.0.4   | REST Proxy wrapper library for Kafka |
 | [md5](https://github.com/scalajs-io/md5)                                              | 2.1.0   | A JavaScript function for hashing messages with MD5. |
 | [memory-fs](https://github.com/scalajs-io/memory-fs)                                  | 0.3.0   | A simple in-memory filesystem. Holds data in a javascript object. |
 | [minimist](https://github.com/scalajs-io/minimist)                                    | 1.2.0   | This module is the guts of optimist's argument parser without all the fanciful decoration. |
@@ -107,12 +110,14 @@ This project is used for locally building and publishing all components of the S
 | [mongodb](https://github.com/scalajs-io/mongodb)                                      | 2.2.22  | The official MongoDB driver for Node.js. |
 | [mongoose](https://github.com/scalajs-io/mongoose)                                    | 4.8.1   | Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment. |
 | [mpromise](https://github.com/scalajs-io/mpromise)                                    | 0.5.5   | A promises/A+ conformant implementation, written for mongoose. |
-| [multer](https://github.com/scalajs-io/multer)                                        | 1.1.0   | Multer is a node.js middleware for handling multipart/form-data. | Tesing required |
+| [multer](https://github.com/scalajs-io/multer)                                        | 1.1.0   | Multer is a node.js middleware for handling multipart/form-data. |
 | [mysql](https://github.com/scalajs-io/mysql)                                          | 2.10.2  | A node.js driver for mysql. |
-| [node-zookeeper-client](https://github.com/scalajs-io/node-zookeeper-client)          | 0.2.2   | A higher-level ZooKeeper client based on node-zookeeper with support for locking and master election. | Tesing required |
+| [node-fetch](https://github.com/scalajs-io/node-fetch)                                | 1.6.3   | A light-weight module that brings window.fetch to Node.js. |
+| [node-zookeeper-client](https://github.com/scalajs-io/node-zookeeper-client)          | 0.2.2   | A higher-level ZooKeeper client based on node-zookeeper with support for locking and master election. |
 | [numeral](https://github.com/scalajs-io/numeral)                                      | 2.0.4   | A javascript library for formatting and manipulating numbers. |
-| [oppressor](https://github.com/scalajs-io/oppressor)                                  | 0.0.1   | Streaming http compression response negotiator. | Tesing required |
+| [oppressor](https://github.com/scalajs-io/oppressor)                                  | 0.0.1   | Streaming http compression response negotiator. |
 | [readable-stream](https://github.com/scalajs-io/readable-stream)                      | 2.2.2   | Streams3, a user-land copy of the stream library from Node.js. |
+| [redis](https://github.com/scalajs-io/redis)                                          | 2.7.1   | This is a complete and feature rich Redis client for Node.js. |
 | [request](https://github.com/scalajs-io/request)                                      | 2.72.1  | Simplified HTTP request client. |
 | [rxjs](https://github.com/scalajs-io/rxjs)                                            | 4.1.0   | The Reactive Extensions for JavaScript. |
 | [socket.io](https://github.com/scalajs-io/socket.io)                                  | 1.7.2   | Realtime application framework (Node.JS server). |
@@ -171,18 +176,18 @@ The following bundled artifacts are generated by this project:
 ##### Complete platform bundle
 
 ```sbt
-libraryDependencies += "io.scalajs" %%% "complete-platform" % "0.4.0-pre3"
+libraryDependencies += "io.scalajs" %%% "complete-platform" % "0.4.0-pre4"
 ```
 ##### MEAN Stack bundle (Node, MongoDB and Express.js)
 
 ```sbt
-libraryDependencies += "io.scalajs.npm" %%% "mean-stack" % "0.4.0-pre3"
+libraryDependencies += "io.scalajs.npm" %%% "mean-stack" % "0.4.0-pre4"
 ```
 
 ##### Angular.js bundle (including all associated components)
 
 ```sbt
-libraryDependencies += "io.scalajs" %%% "angularjs-bundle" % "0.4.0-pre3"
+libraryDependencies += "io.scalajs" %%% "angularjs-bundle" % "0.4.0-pre4"
 ```
 
 Optionally, you may add the Sonatype Repository resolver:

@@ -6,14 +6,14 @@ import sbt._
 
 import scala.language.postfixOps
 
-val apiVersion = "0.4.0-pre3"
+val apiVersion = "0.4.0-pre4"
 val angularVersion = apiVersion
 val scalaJsVersion = "2.12.1"
 //val scalaJsVersion = "2.11.8"
 
 organization := "io.scalajs"
 
-homepage := Some(url("https://github.com/scalajs-io/scalajs.io"))
+homepage := Some(url("https://github.com/scalajs-io/scalajs-io"))
 
 val commonSettings = Seq(
   version := apiVersion,
@@ -257,7 +257,6 @@ lazy val angular_platform = (project in file("bundles/angularjs")).
     angular_md5, angular_nvd3, angular_sanitize, angularjs_toaster, angular_ui_bootstrap, angular_ui_router).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings ++ publishingSettings: _*).
-  settings(publishingSettings: _*).
   settings(
     name := "angular-bundle",
     organization := "io.scalajs.npm",
@@ -339,7 +338,6 @@ lazy val buffermaker = (project in file("buffermaker")).
   dependsOn(nodejs, bignum).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings ++ publishingSettings: _*).
-  settings(publishingSettings: _*).
   settings(
     name := "buffermaker",
     organization := "io.scalajs.npm",
@@ -549,7 +547,6 @@ lazy val gzip_uncompressed_size = (project in file("gzip-uncompressed-size")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings ++ publishingSettings: _*).
-  settings(publishingSettings: _*).
   settings(
     name := "gzip-uncompressed-size",
     organization := "io.scalajs.npm",
@@ -583,7 +580,6 @@ lazy val ip = (project in file("ip")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings ++ publishingSettings: _*).
-  settings(publishingSettings: _*).
   settings(
     name := "ip",
     organization := "io.scalajs.npm",
@@ -695,7 +691,6 @@ lazy val moment_duration_format = (project in file("moment-duration-format")).
   dependsOn(nodejs, moment).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings ++ publishingSettings: _*).
-  settings(publishingSettings: _*).
   settings(
     name := "moment-duration-format",
     organization := "io.scalajs.npm",
@@ -718,7 +713,6 @@ lazy val moment_timezone = (project in file("moment-timezone")).
   dependsOn(nodejs, moment).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings ++ publishingSettings: _*).
-  settings(publishingSettings: _*).
   settings(
     name := "moment-timezone",
     organization := "io.scalajs.npm",
@@ -730,7 +724,6 @@ lazy val mongodb = (project in file("mongodb")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings ++ publishingSettings: _*).
-  settings(publishingSettings: _*).
   settings(
     name := "mongodb",
     organization := "io.scalajs.npm",
@@ -780,6 +773,17 @@ lazy val mysql = (project in file("mysql")).
     name := "mysql",
     organization := "io.scalajs.npm",
     description := "mysql binding for Scala.js",
+    version := apiVersion
+  )
+
+lazy val node_fetch = (project in file("node-fetch")).
+  dependsOn(nodejs).
+  enablePlugins(ScalaJSPlugin).
+  settings(commonSettings ++ publishingSettings: _*).
+  settings(
+    name := "node-fetch",
+    organization := "io.scalajs.npm",
+    description := "A light-weight module that brings window.fetch to Node.js",
     version := apiVersion
   )
 
@@ -1067,7 +1071,7 @@ lazy val complete_platform = (project in file("bundles/complete")).
     express, express_csv, express_fileupload, express_ws, feedparser, filed, github_api_node,
     glob, gzip_uncompressed_size, html_to_json, htmlparser2, ip, jsdom, jwt_simple, kafka_node, /*kafka_rest,*/
     md5, memory_fs, mkdirp, moment, moment_duration_format, moment_range, moment_timezone,
-    mongodb, mongoose, mpromise, multer, mysql, node_zookeeper_client,
+    mongodb, mongoose, mpromise, multer, mysql, node_fetch, node_zookeeper_client,
     numeral, oppressor, otaat_repl, readable_stream, redis, request, rxjs, /*should, socketio_client, socketio_server,*/ splitargs,
     stream_throttle, throttle, tingodb, tough_cookie, transducers, type_is,
     watch, winston, winston_daily_rotate_file, xml2js).
@@ -1079,7 +1083,7 @@ lazy val complete_platform = (project in file("bundles/complete")).
     express, express_csv, express_fileupload, express_ws, feedparser, filed, github_api_node,
     glob, gzip_uncompressed_size, html_to_json, htmlparser2, ip, jsdom, jwt_simple, kafka_node, /*kafka_rest,*/
     md5, memory_fs, mkdirp, moment, moment_duration_format, moment_range, moment_timezone,
-    mongodb, mongoose, mpromise, multer, mysql, node_zookeeper_client,
+    mongodb, mongoose, mpromise, multer, mysql, node_fetch, node_zookeeper_client,
     numeral, oppressor, otaat_repl, readable_stream, redis, request, rxjs, /*should, socketio_client, socketio_server,*/ splitargs,
     stream_throttle, throttle, tingodb, tough_cookie, transducers, type_is,
     watch, winston, winston_daily_rotate_file, xml2js).
@@ -1117,7 +1121,7 @@ lazy val publishingSettings = Seq(
       Some("releases" at nexus + "service/local/staging/deploy/maven2")
   },
   pomExtra :=
-    <url>https://github.com/scalajs-io/scalajs.io</url>
+    <url>https://github.com/scalajs-io/scalajs-io</url>
       <licenses>
         <license>
           <name>MIT License</name>
@@ -1125,9 +1129,9 @@ lazy val publishingSettings = Seq(
         </license>
       </licenses>
       <scm>
-        <connection>scm:git:github.com/scalajs-io/scalajs.io.git</connection>
-        <developerConnection>scm:git:git@github.com:scalajs-io/scalajs.io.git</developerConnection>
-        <url>github.com/scalajs-io/scalajs.io.git</url>
+        <connection>scm:git:github.com/scalajs-io/scalajs-io.git</connection>
+        <developerConnection>scm:git:git@github.com:scalajs-io/scalajs-io.git</developerConnection>
+        <url>github.com/scalajs-io/scalajs-io.git</url>
       </scm>
       <developers>
         <developer>

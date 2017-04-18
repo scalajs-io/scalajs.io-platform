@@ -6,7 +6,6 @@
 import os
 from git import Repo
 
-
 #################################################################################################
 #       Methods
 #################################################################################################
@@ -54,17 +53,17 @@ repo_cache = "../_repos"
 sym_link_files = {"build.sbt": "build.sbt.txt", "package.json": "package.json", "README.md": "README.md", "src/": "src"}
 
 # define the available repos
-repoNames = """angular angular-cookies angular-md5 angularjs-toaster angular-anchor-scroll angular-facebook
-            angular-nvd3 angular-ui-bootstrap angular-animate angular-file-upload angular-sanitize 
+repoNames = """angular angular-anchor-scroll angular-animate angular-cookies angular-md5 angularjs-toaster 
+            angular-facebook angular-nvd3 angular-ui-bootstrap angular-file-upload angular-sanitize 
             angular-ui-router async aws-s3 bcrypt bignum body-parser brake buffermaker
             cassandra-driver chalk cheerio colors cookie cookie-parser core csv-parse
             csvtojson dom-html drama escape-html express express-csv express-fileupload express-ws
             facebook-api feedparser-promised filed github-api-node glob gzip-uncompressed-size 
-            html-to-json htmlparser2 ip jquery jsdom jwt-simple kafka-node linkedin-api md5 memory-fs minimist mkdirp 
-            moment moment-duration-format moment-range moment-timezone mongodb mongoose mpromise multer mysql 
-            node-zookeeper-client nodejs numeral oppressor otaat-repl phaser pixijs readable-stream redis request rx 
-            splitargs stream-throttle throttle tingodb tough-cookie transducers-js type-is 
-            watch winston winston-daily-rotate-file xml2js""".split(" ")
+            html-to-json htmlparser2 ip jquery jsdom jwt-simple kafka-node linkedin-api md5 memory-fs 
+            minimist mkdirp moment moment-duration-format moment-range moment-timezone mongodb mongoose 
+            mpromise multer mysql node-fetch node-zookeeper-client nodejs numeral oppressor otaat-repl 
+            phaser pixijs readable-stream redis request rx splitargs stream-throttle throttle tingodb 
+            tough-cookie transducers-js type-is watch winston winston-daily-rotate-file xml2js""".split(" ")
 
 # convert the array to a list of repo names
 repoNames = list(filter(lambda s: not isBlank(s), repoNames))
