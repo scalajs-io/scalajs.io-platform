@@ -50,15 +50,16 @@ version = "0.4.0-pre1"
 repo_cache = "../_repos"
 
 # define the symbolic link files
-sym_link_files = {"build.sbt": "build.sbt.txt", "package.json": "package.json", "README.md": "README.md", "src/": "src"}
+sym_link_files = {"build.sbt": "build.sbt.txt", "package.json": "package.json.txt", "README.md": "README.md", "src/": "src",
+                  "project/plugins.sbt": "plugins.sbt.txt", "project/build.properties": "build.properties.txt"}
 
 # define the available repos
 repoNames = """angular angular-anchor-scroll angular-animate angular-cookies angular-md5 angularjs-toaster 
             angular-facebook angular-nvd3 angular-ui-bootstrap angular-file-upload angular-sanitize 
             angular-ui-router async aws-s3 bcrypt bignum body-parser brake buffermaker
-            cassandra-driver chalk cheerio colors cookie cookie-parser core csv-parse
+            cassandra-driver chalk cheerio colors combined-stream cookie cookie-parser core csv-parse
             csvtojson dom-html drama escape-html express express-csv express-fileupload express-ws
-            facebook-api feedparser-promised filed github-api-node glob gzip-uncompressed-size 
+            facebook-api feedparser-promised filed form-data github-api-node glob gzip-uncompressed-size 
             html-to-json htmlparser2 ip jquery jsdom jwt-simple kafka-node linkedin-api md5 memory-fs 
             minimist mkdirp moment moment-duration-format moment-range moment-timezone mongodb mongoose 
             mpromise multer mysql node-fetch node-zookeeper-client nodejs numeral oppressor otaat-repl 

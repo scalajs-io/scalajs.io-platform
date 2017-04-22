@@ -14,4 +14,5 @@ addSbtPlugin("com.geirsson" % "sbt-scalafmt" % "0.5.5")
 
 resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
 
-resolvers += Resolver.url("scala-js-snapshots", url("http://repo.scala-js.org/repo/snapshots/"))(Resolver.ivyStylePatterns)
+resolvers += Resolver.url("scala-js-snapshots", url("http://repo.scala-js.org/repo/snapshots/"))(
+  Resolver.ivyStylePatterns)

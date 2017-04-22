@@ -1,12 +1,12 @@
 import org.scalajs.sbtplugin.ScalaJSPlugin
 import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
-import sbt.Keys.{libraryDependencies, _}
+import sbt.Keys._
 import sbt.Project.projectToRef
 import sbt._
 
 import scala.language.postfixOps
 
-val apiVersion = "0.4.0-pre4"
+val apiVersion = "0.4.0-pre5"
 val angularVersion = apiVersion
 val scalaJsVersion = "2.12.1"
 //val scalaJsVersion = "2.11.8"
@@ -324,15 +324,14 @@ lazy val body_parser = (project in file("body-parser")).
   )
 
 lazy val brake = (project in file("brake")).
-  dependsOn(nodejs).
+  dependsOn(nodejs, readable_stream % "test->test").
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "brake",
     organization := "io.scalajs.npm",
     description := "brake binding for Scala.js",
-    version := apiVersion
-  )
+    version := apiVersion)
 
 lazy val buffermaker = (project in file("buffermaker")).
   dependsOn(nodejs, bignum).
@@ -389,6 +388,17 @@ lazy val colors = (project in file("colors")).
     version := apiVersion
   )
 
+lazy val combined_stream = (project in file("combined-stream")).
+  dependsOn(nodejs).
+  enablePlugins(ScalaJSPlugin).
+  settings(commonSettings ++ publishingSettings: _*).
+  settings(
+    name := "combined-stream",
+    organization := "io.scalajs.npm",
+    description := "A stream that emits multiple other streams one after another.",
+    version := apiVersion
+  )
+
 lazy val cookie = (project in file("cookie")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
@@ -412,15 +422,15 @@ lazy val cookie_parser = (project in file("cookie-parser")).
   )
 
 lazy val csv_parse = (project in file("csv-parse")).
-  dependsOn(nodejs).
+  dependsOn(nodejs, readable_stream % "test->test").
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings ++ publishingSettings: _*).
   settings(
     name := "csv-parse",
     organization := "io.scalajs.npm",
     description := "csv-parse binding for Scala.js",
-    version := apiVersion
-  )
+    version := apiVersion)
+
 
 lazy val csvtojson = (project in file("csvtojson")).
   dependsOn(nodejs).
@@ -520,6 +530,16 @@ lazy val filed = (project in file("filed")).
     description := "filed binding for Scala.js",
     version := apiVersion
   )
+
+lazy val form_data = (project in file("form-data")).
+  dependsOn(nodejs, request % "test->test").
+  enablePlugins(ScalaJSPlugin).
+  settings(commonSettings ++ publishingSettings: _*).
+  settings(
+    name := "form-data",
+    organization := "io.scalajs.npm",
+    description := "A library to create readable \"multipart/form-data\" streams.",
+    version := apiVersion)
 
 lazy val github_api_node = (project in file("github-api-node")).
   dependsOn(nodejs).
@@ -956,7 +976,7 @@ lazy val tingodb = (project in file("tingodb")).
   )
 
 lazy val tough_cookie = (project in file("tough-cookie")).
-  dependsOn(nodejs, mongodb).
+  dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
   settings(commonSettings ++ publishingSettings: _*).
   settings(
@@ -1067,8 +1087,8 @@ lazy val complete_platform = (project in file("bundles/complete")).
     core, dom_html, jquery, nodejs, phaser, pixijs, facebook, linkedin, angular_platform, mean_stack,
     // npm packages
     async, aws_s3, bcrypt, bignum, body_parser, brake, buffermaker, cassandra_driver, chalk, cheerio,
-    colors, cookie, cookie_parser, csv_parse, csvtojson, drama, escape_html,
-    express, express_csv, express_fileupload, express_ws, feedparser, filed, github_api_node,
+    colors, combined_stream, cookie, cookie_parser, csv_parse, csvtojson, drama, escape_html,
+    express, express_csv, express_fileupload, express_ws, feedparser, filed, form_data, github_api_node,
     glob, gzip_uncompressed_size, html_to_json, htmlparser2, ip, jsdom, jwt_simple, kafka_node, /*kafka_rest,*/
     md5, memory_fs, mkdirp, moment, moment_duration_format, moment_range, moment_timezone,
     mongodb, mongoose, mpromise, multer, mysql, node_fetch, node_zookeeper_client,
@@ -1079,8 +1099,8 @@ lazy val complete_platform = (project in file("bundles/complete")).
     core, dom_html, jquery, nodejs, phaser, pixijs, facebook, linkedin, angular_platform, mean_stack,
     // npm packages
     async, aws_s3, bcrypt, bignum, body_parser, brake, buffermaker, cassandra_driver, chalk, cheerio,
-    colors, cookie, cookie_parser, csv_parse, csvtojson, drama, escape_html,
-    express, express_csv, express_fileupload, express_ws, feedparser, filed, github_api_node,
+    colors, combined_stream, cookie, cookie_parser, csv_parse, csvtojson, drama, escape_html,
+    express, express_csv, express_fileupload, express_ws, feedparser, filed, form_data, github_api_node,
     glob, gzip_uncompressed_size, html_to_json, htmlparser2, ip, jsdom, jwt_simple, kafka_node, /*kafka_rest,*/
     md5, memory_fs, mkdirp, moment, moment_duration_format, moment_range, moment_timezone,
     mongodb, mongoose, mpromise, multer, mysql, node_fetch, node_zookeeper_client,
