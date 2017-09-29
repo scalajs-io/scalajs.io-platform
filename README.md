@@ -82,6 +82,7 @@ This project is used for locally building and publishing all components of the S
 | [csv-parse](https://github.com/scalajs-io/csv-parse)                                  | 1.1.2   | CSV parsing implementing the Node.js 'stream.Transform' API.|
 | [csvtojson](https://github.com/scalajs-io/csvtojson)                                  | 1.1.4   | A tool concentrating on converting csv data to JSON with customised parser supporting.|
 | [drama](https://github.com/scalajs-io/drama)                                          | 0.1.3   | drama is an Actor model implementation for JavaScript and Node.js |
+| [engine.io](https://github.com/scalajs-io/engine.io)                                  | 3.1.2   | Engine.IO is the implementation of transport-based cross-browser/cross-device bi-directional communication layer for Socket.IO. |
 | [escape-html](https://github.com/scalajs-io/escape-html)                              | 1.0.3   | Escape string for use in HTML |
 | [express](https://github.com/scalajs-io/express)                                      | 4.13.4  | Fast, unopinionated, minimalist web framework for Node.js |
 | [express-csv](https://github.com/scalajs-io/express-csv)                              | 0.6.0   | `express-csv` provides response csv easily to express. |
@@ -99,7 +100,6 @@ This project is used for locally building and publishing all components of the S
 | [jsdom](https://github.com/scalajs-io/jsdom)                                          | 9.9.1   | A JavaScript implementation of the WHATWG DOM and HTML standards, for use with Node.js |
 | [jwt-simple](https://github.com/scalajs-io/jwt-simple)                                | 0.5.0   | JWT(JSON Web Token) encode and decode module |
 | [kafka-node](https://github.com/scalajs-io/kafka-node)                                | 0.0.11  | A node binding for librdkafka |
-| [kafka-rest](https://github.com/scalajs-io/kafka-rest)                                | 0.0.4   | REST Proxy wrapper library for Kafka |
 | [md5](https://github.com/scalajs-io/md5)                                              | 2.1.0   | A JavaScript function for hashing messages with MD5. |
 | [memory-fs](https://github.com/scalajs-io/memory-fs)                                  | 0.3.0   | A simple in-memory filesystem. Holds data in a javascript object. |
 | [minimist](https://github.com/scalajs-io/minimist)                                    | 1.2.0   | This module is the guts of optimist's argument parser without all the fanciful decoration. |
@@ -122,8 +122,6 @@ This project is used for locally building and publishing all components of the S
 | [redis](https://github.com/scalajs-io/redis)                                          | 2.7.1   | This is a complete and feature rich Redis client for Node.js. |
 | [request](https://github.com/scalajs-io/request)                                      | 2.72.1  | Simplified HTTP request client. |
 | [rxjs](https://github.com/scalajs-io/rxjs)                                            | 4.1.0   | The Reactive Extensions for JavaScript. |
-| [socket.io](https://github.com/scalajs-io/socket.io)                                  | 1.7.2   | Realtime application framework (Node.JS server). |
-| [socket.io-client](https://github.com/scalajs-io/socket.io-client)                    | 1.7.2   | Socket.io client. |
 | [splitargs](https://github.com/scalajs-io/splitargs)                                  | 0.0.7   | Splits strings into tokens by given separator except treating quoted part as a single token. |
 | [stream-throttle](https://github.com/scalajs-io/stream-throttle)                      | 0.1.3   | A rate limiter for Node.js streams. |
 | [throttle](https://github.com/scalajs-io/throttle)                                    | 1.0.3   | Node.js Transform stream that passes data through at n bytes per second. |
