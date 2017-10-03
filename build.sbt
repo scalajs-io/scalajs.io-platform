@@ -6,10 +6,10 @@ import sbt._
 
 import scala.language.postfixOps
 
-val apiVersion = "0.4.0"
+val apiVersion = "0.4.1"
 val angularVersion = apiVersion
-val scalaJsVersion = "2.12.1"
-//val scalaJsVersion = "2.11.8"
+val scalaJsVersion = "2.12.3"
+//val scalaJsVersion = "2.11.11"
 
 organization := "io.scalajs"
 
@@ -454,6 +454,17 @@ lazy val drama = (project in file("drama")).
     version := apiVersion
   )
 
+lazy val engine_io = (project in file("engine.io")).
+  dependsOn(nodejs).
+  enablePlugins(ScalaJSPlugin).
+  settings(commonSettings ++ publishingSettings: _*).
+  settings(
+    name := "engine.io",
+    organization := "io.scalajs.npm",
+    description := "engine.io binding for Scala.js",
+    version := apiVersion
+  )
+
 lazy val escape_html = (project in file("escape-html")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
@@ -796,6 +807,17 @@ lazy val mysql = (project in file("mysql")).
     version := apiVersion
   )
 
+lazy val nock = (project in file("nock")).
+  dependsOn(nodejs).
+  enablePlugins(ScalaJSPlugin).
+  settings(commonSettings ++ publishingSettings: _*).
+  settings(
+    name := "nock",
+    organization := "io.scalajs.npm",
+    description := "Nock is an HTTP mocking and expectations library for Node.js",
+    version := apiVersion
+  )
+
 lazy val node_fetch = (project in file("node-fetch")).
   dependsOn(nodejs).
   enablePlugins(ScalaJSPlugin).
@@ -1087,24 +1109,24 @@ lazy val complete_platform = (project in file("bundles/complete")).
     core, dom_html, jquery, nodejs, phaser, pixijs, facebook, linkedin, angular_platform, mean_stack,
     // npm packages
     async, aws_s3, bcrypt, bignum, body_parser, brake, buffermaker, cassandra_driver, chalk, cheerio,
-    colors, combined_stream, cookie, cookie_parser, csv_parse, csvtojson, drama, escape_html,
+    colors, combined_stream, cookie, cookie_parser, csv_parse, csvtojson, drama, engine_io, escape_html,
     express, express_csv, express_fileupload, express_ws, feedparser, filed, form_data, github_api_node,
-    glob, gzip_uncompressed_size, html_to_json, htmlparser2, ip, jsdom, jwt_simple, kafka_node, /*kafka_rest,*/
+    glob, gzip_uncompressed_size, html_to_json, htmlparser2, ip, jsdom, jwt_simple, kafka_node,
     md5, memory_fs, mkdirp, moment, moment_duration_format, moment_range, moment_timezone,
-    mongodb, mongoose, mpromise, multer, mysql, node_fetch, node_zookeeper_client,
-    numeral, oppressor, otaat_repl, readable_stream, redis, request, rxjs, /*should, socketio_client, socketio_server,*/ splitargs,
+    mongodb, mongoose, mpromise, multer, mysql, nock, node_fetch, node_zookeeper_client,
+    numeral, oppressor, otaat_repl, readable_stream, redis, request, rxjs, splitargs,
     stream_throttle, throttle, tingodb, tough_cookie, transducers, type_is,
     watch, winston, winston_daily_rotate_file, xml2js).
   dependsOn(
     core, dom_html, jquery, nodejs, phaser, pixijs, facebook, linkedin, angular_platform, mean_stack,
     // npm packages
     async, aws_s3, bcrypt, bignum, body_parser, brake, buffermaker, cassandra_driver, chalk, cheerio,
-    colors, combined_stream, cookie, cookie_parser, csv_parse, csvtojson, drama, escape_html,
+    colors, combined_stream, cookie, cookie_parser, csv_parse, csvtojson, drama, engine_io, escape_html,
     express, express_csv, express_fileupload, express_ws, feedparser, filed, form_data, github_api_node,
-    glob, gzip_uncompressed_size, html_to_json, htmlparser2, ip, jsdom, jwt_simple, kafka_node, /*kafka_rest,*/
+    glob, gzip_uncompressed_size, html_to_json, htmlparser2, ip, jsdom, jwt_simple, kafka_node,
     md5, memory_fs, mkdirp, moment, moment_duration_format, moment_range, moment_timezone,
-    mongodb, mongoose, mpromise, multer, mysql, node_fetch, node_zookeeper_client,
-    numeral, oppressor, otaat_repl, readable_stream, redis, request, rxjs, /*should, socketio_client, socketio_server,*/ splitargs,
+    mongodb, mongoose, mpromise, multer, mysql, nock, node_fetch, node_zookeeper_client,
+    numeral, oppressor, otaat_repl, readable_stream, redis, request, rxjs, splitargs,
     stream_throttle, throttle, tingodb, tough_cookie, transducers, type_is,
     watch, winston, winston_daily_rotate_file, xml2js).
   enablePlugins(ScalaJSPlugin).
