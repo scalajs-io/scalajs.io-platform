@@ -13,7 +13,6 @@ val scalaJsVersion = "2.12.3"
 
 val commonSettings = Seq(
   organization := "io.scalajs",
-  homepage := Some(url("https://github.com/scalajs-io/scalajs-io")),
   version := apiVersion,
   scalaVersion := scalaJsVersion,
   scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature", "-language:implicitConversions", "-Xlint"),
