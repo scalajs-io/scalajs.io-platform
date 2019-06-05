@@ -4,7 +4,7 @@ import java.io.File
 
 import org.slf4j.LoggerFactory
 
-import scala.io.Source
+import scala.io.{BufferedSource, Source}
 import scala.sys.process._
 import scala.util.Properties
 
@@ -21,21 +21,24 @@ case class Repo(name: String, organization: String, dependencies: List[String]) 
 
   val buildFile = new File(repoDir, "build.sbt")
 
+  def commit(message: String): Int = {
+    logger.info(s"Committing '$name'...")
+    report(Process(command = s"""git commit -a -m "$message" """, cwd = repoDir).!, action = "Commit")
+  }
+
   def compile()(implicit config: InstallerConfig): Int = {
     logger.info(s"Compiling '$name'...")
-    report(Process(command = "sbt compile", cwd = repoDir).!, action = "PublishLocal")
+    report(Process(command = "sbt clean compile", cwd = repoDir).!, action = "Compile")
   }
 
   def download(): Int = {
     logger.info(s"Downloading '$name'...")
-    report(s"git -C ${repoDir.getParent} clone https://github.com/scalajs-io/$name".!, "Download")
+    report(s"git -C ${repoDir.getParent} clone https://github.com/scalajs-io/$name".!, action ="Download")
   }
 
   def downloadOrUpdate(): Int = if (!repoDir.exists()) download() else update()
 
-  def exists: Boolean = repoDir.exists()
-
-  def isSatisfied(implicit ctx: ProcessingContext): Boolean = dependencies.isEmpty | dependencies.forall(ctx.isCompleted)
+  def isSatisfied(implicit ctx: ProcessingContext): Boolean = dependencies.isEmpty || dependencies.forall(ctx.isCompleted)
 
   def jarFile(implicit config: InstallerConfig) = new File(repoDir, s"target/scala-2.12/${name}_sjs0.6_2.12-${config.version}.jar")
 
@@ -45,11 +48,13 @@ case class Repo(name: String, organization: String, dependencies: List[String]) 
 
   def publishLocal()(implicit config: InstallerConfig): Int = {
     logger.info(s"Publishing local '$name'...")
-    report(Process(command = "sbt clean publishLocal", cwd = repoDir).!, action = "PublishLocal")
+    report(Process(command = "sbt publishLocal", cwd = repoDir).!, action = "PublishLocal")
   }
 
   def unmatchedProject: Boolean = {
-    buildFile.exists() && !Source.fromFile(buildFile).getLines().mkString.contains(s"""name := "$name"""")
+    def closer[A](bs: BufferedSource)(f: BufferedSource => A): A = try f(bs) finally bs.close()
+
+    buildFile.exists() && !closer(Source.fromFile(buildFile))(_.mkString.contains(s"""name := "$name""""))
   }
 
   def update(): Int = {

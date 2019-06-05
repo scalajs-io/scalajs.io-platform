@@ -1,11 +1,11 @@
 {
   "version": "0.5.0",
-  "repos": [
+  "repositories": [
     { "name":"core", "organization":"io.scalajs", "dependencies": [] },
     { "name":"dom-html", "organization":"io.scalajs", "dependencies": [ "core" ] },
     { "name":"nodejs", "organization":"io.scalajs", "dependencies": [ "core" ] },
     { "name":"amcharts", "organization":"io.scalajs.npm", "dependencies": [ "dom-html" ] },
-    { "name":"angular", "organization":"io.scalajs.npm", "dependencies": [ "dom-html" ] },
+    { "name":"angular", "organization":"io.scalajs.npm", "dependencies": [ "dom-html", "jquery" ] },
     { "name":"angular-anchor-scroll", "organization":"io.scalajs.npm", "dependencies": [ "angular" ] },
     { "name":"angular-animate", "organization":"io.scalajs.npm", "dependencies": [ "angular" ] },
     { "name":"angular-cookies", "organization":"io.scalajs.npm", "dependencies": [ "angular" ] },
@@ -47,7 +47,7 @@
     { "name":"github-api-node", "organization":"io.scalajs.npm", "dependencies": [ "nodejs" ] },
     { "name":"glob", "organization":"io.scalajs.npm", "dependencies": [ "nodejs" ] },
     { "name":"gzip-uncompressed-size", "organization":"io.scalajs.npm", "dependencies": [ "nodejs" ] },
-    { "name":"html-to-json", "organization":"io.scalajs.npm", "dependencies": [ "nodejs" ] },
+    { "name":"html-to-json", "organization":"io.scalajs.npm", "dependencies": [ "dom-html", "jquery", "request" ] },
     { "name":"htmlparser2", "organization":"io.scalajs.npm", "dependencies": [ "nodejs" ] },
     { "name":"ip", "organization":"io.scalajs.npm", "dependencies": [ "nodejs" ] },
     { "name":"jquery", "organization":"io.scalajs", "dependencies": [ "nodejs" ] },

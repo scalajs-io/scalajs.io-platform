@@ -14,7 +14,7 @@ class RepoTest extends FunSpec {
   describe(classOf[Repo].getSimpleName) {
 
     it("identify the path of the locally published jar") {
-      val repo = config.repos.find(_.name == "core")
+      val repo = config.repositories.find(_.name == "core")
         .getOrElse(throw new IllegalStateException("Project 'core' was not found"))
 
       info(s"ivy2File: ${repo.ivy2File}")
