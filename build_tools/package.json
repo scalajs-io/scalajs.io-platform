@@ -1,9 +1,0 @@
-{
-  "name": "mkdirp-sjs",
-  "version": "0.4.2",
-  "private": true,
-  "dependencies": {
-    "mkdirp": "^0.5.1",
-    "source-map-support": "^0.4.14"
-  }
-}

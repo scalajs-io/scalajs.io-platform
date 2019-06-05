@@ -147,7 +147,7 @@ However, in order to the script to operate properly, you must first install
 
 ### Build Dependencies
 
-* [SBT v0.13.16](http://www.scala-sbt.org/download.html)
+* [SBT v1.2.x](http://www.scala-sbt.org/download.html)
 
 ### Build/publish the ScalaJs.io platform locally
 
