@@ -8,7 +8,7 @@ import scala.concurrent.{Future, Promise}
   * @param repoCount the total number of repositories
   */
 case class ProcessingContext(repoCount: Int) {
-  private val mappings = TrieMap[String, Repo]()
+  private val mappings = TrieMap[String, CodeRepo]()
   private val promise = Promise[Long]()
   private val startTime = System.currentTimeMillis()
 
@@ -18,11 +18,11 @@ case class ProcessingContext(repoCount: Int) {
 
   def isCompleted(name: String): Boolean = mappings.contains(name)
 
-  def isCompleted(repo: Repo): Boolean = mappings.contains(repo.name)
+  def isCompleted(repo: CodeRepo): Boolean = mappings.contains(repo.name)
 
   def isDone: Boolean = mappings.size == repoCount
 
-  def completed(repo: Repo): Unit = {
+  def completed(repo: CodeRepo): Unit = {
     mappings(repo.name) = repo
     if (isDone) promise.success(System.currentTimeMillis() - startTime)
   }

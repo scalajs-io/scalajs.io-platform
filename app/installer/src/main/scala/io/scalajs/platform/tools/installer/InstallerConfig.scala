@@ -8,9 +8,9 @@ import scala.io.Source
 /**
   * Represents the Installer configuration
   * @param version the application version
-  * @param repositories   the configured [[Repo repositories]]
+  * @param repositories   the configured [[CodeRepo repositories]]
   */
-case class InstallerConfig(version: String, repositories: List[Repo])
+case class InstallerConfig(version: String, repositories: List[CodeRepo])
 
 /**
   * InstallerConfig Companion

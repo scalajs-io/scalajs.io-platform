@@ -35,7 +35,7 @@ class InstallationActor()(implicit config: InstallerConfig, ctx: ProcessingConte
     case message => unhandled(message)
   }
 
-  def reschedule(repo: Repo, command: InstallationCommand): Unit = {
+  def reschedule(repo: CodeRepo, command: InstallationCommand): Unit = {
     logger.info(s"${repo.name}: Rescheduled; missing dependencies = [${repo.dependencies.filterNot(ctx.isCompleted).mkString(", ")}]")
     import context.dispatcher
     context.system.scheduler.scheduleOnce(delay = 30.seconds) {
@@ -53,16 +53,16 @@ object InstallationActor {
 
   sealed trait InstallationCommand {
 
-    def repo: Repo
+    def repo: CodeRepo
 
     def attempts: Int
 
   }
 
-  case class Compile(repo: Repo, attempts: Int = 1) extends InstallationCommand
+  case class Compile(repo: CodeRepo, attempts: Int = 1) extends InstallationCommand
 
-  case class Download(repo: Repo, attempts: Int = 1) extends InstallationCommand
+  case class Download(repo: CodeRepo, attempts: Int = 1) extends InstallationCommand
 
-  case class PublishLocal(repo: Repo, attempts: Int = 1) extends InstallationCommand
+  case class PublishLocal(repo: CodeRepo, attempts: Int = 1) extends InstallationCommand
 
 }

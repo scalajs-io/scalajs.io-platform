@@ -36,7 +36,7 @@ object Installer {
 
   /**
     * Starts the download/publishing process
-    * @param repos     the collection of [[Repo repositories]]
+    * @param repos     the collection of [[CodeRepo repositories]]
     * @param force     indicates whether publishing should be forced
     * @param timeOut   the maximum allowed [[FiniteDuration duration]] for processing
     * @param ec        the implicit [[ExecutionContext]]
@@ -44,10 +44,10 @@ object Installer {
     * @param ctx       the implicit [[ProcessingContext]]
     * @param actorPool the implicit [[ActorRef]]
     */
-  def start(repos: Seq[Repo], force: Boolean, timeOut: FiniteDuration = 2.hours)
+  def start(repos: Seq[CodeRepo], force: Boolean, timeOut: FiniteDuration = 2.hours)
            (implicit ec: ExecutionContext, config: InstallerConfig, ctx: ProcessingContext, actorPool: ActorRef): Unit = {
     // create the base directory
-    repos.headOption.foreach(_.repoDir.getParentFile.mkdirs())
+    repos.headOption.foreach(_.rootDirectory.getParentFile.mkdirs())
 
     // download (clone) or update (pull) each repo
     repos.foreach(_.downloadOrUpdate())
