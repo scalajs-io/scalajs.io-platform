@@ -1,5 +1,7 @@
 package io.scalajs.platform.tools.installer
 
+import java.io.File
+
 import akka.actor.{ActorRef, ActorSystem, Props}
 import akka.routing.RoundRobinPool
 import io.scalajs.platform.tools.installer.InstallationActor._
@@ -46,11 +48,11 @@ object Installer {
     */
   def start(repos: Seq[CodeRepo], force: Boolean, timeOut: FiniteDuration = 2.hours)
            (implicit ec: ExecutionContext, config: InstallerConfig, ctx: ProcessingContext, actorPool: ActorRef): Unit = {
-    // create the base directory
-    repos.headOption.foreach(_.rootDirectory.getParentFile.mkdirs())
+    // create the base directories
+    createBaseDirectories(repos)
 
     // download (clone) or update (pull) each repo
-    repos.foreach(_.downloadOrUpdate())
+    downloadOrUpdateRepos(repos)
 
     // perform an audit of unpublished repositories
     val unpublishedRepos = repos.filterNot(_.ivy2File.exists())
@@ -78,5 +80,37 @@ object Installer {
     // wait for the process to complete
     Await.result(outcome, timeOut)
   }
+
+  private def createBaseDirectories(repos: Seq[CodeRepo]): Unit = {
+    logger.info("Creating base directories...")
+    repos.groupBy(_.rootDirectory.getParentFile).foreach { case (directory, _) =>
+      if (!directory.exists()) {
+        logger.info(s"Creating directory '${directory.getCanonicalPath}'...")
+        if (!directory.mkdirs())
+          logger.error(s"Failed to create directory '${directory.getCanonicalPath}'")
+      }
+    }
+  }
+
+  private def downloadOrUpdateRepos(repos: Seq[CodeRepo])(implicit config: InstallerConfig): Unit = {
+    repos.foreach { repo =>
+      try repo.downloadOrUpdate() catch {
+        case e: Exception =>
+          logger.error(s"${repo.name}: Failed to download or update - ${e.getMessage}")
+      }
+      ensureProjectFiles(repo)
+    }
+  }
+
+  private def ensureProjectFiles(repo: CodeRepo)(implicit config: InstallerConfig): Unit = {
+    ensureProjectFile(repo, _.buildFile, FileGenerator.createBuildFile)
+    ensureProjectFile(repo, _.buildPropertiesFile, FileGenerator.createBuildPropertiesFile)
+    ensureProjectFile(repo, _.pluginsFile, FileGenerator.createPluginsFile)
+    ensureProjectFile(repo, _.readMeFile, FileGenerator.createReadMeFile)
+    ()
+  }
+
+  private def ensureProjectFile(repo: CodeRepo, toFile: CodeRepo => File, create: CodeRepo => File): Option[File] =
+    if (!toFile(repo).exists()) Option(create(repo)) else None
 
 }

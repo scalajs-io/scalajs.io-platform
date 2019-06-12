@@ -23,9 +23,24 @@ case class CodeRepo(name: String, organization: String, dependencies: List[Strin
   val rootDirectory: File = new File("./repos", name)
 
   /**
-    * Project build script
+    * Project build file (e.g. "build.sbt")
     */
   val buildFile: File = new File(rootDirectory, "build.sbt")
+
+  /**
+    * Project build.properties file
+    */
+  val buildPropertiesFile: File = new File(rootDirectory, "project/build.properties")
+
+  /**
+    * Project plugins.sbt file
+    */
+  val pluginsFile: File = new File(rootDirectory, "project/plugins.sbt")
+
+  /**
+    * Project README.md file
+    */
+  val readMeFile: File = new File(rootDirectory, "README.md")
 
   /**
     * Commits the code to the repository

@@ -1,5 +1,8 @@
 {
   "version": "0.5.0",
+  "sbtVersion": "1.2.8",
+  "scalaVersion" : "2.12.8",
+  "scalaJsVersion" : "0.6.28",
   "repositories": [
     { "name":"core", "organization":"io.scalajs", "dependencies": [] },
     { "name":"dom-html", "organization":"io.scalajs", "dependencies": [ "core" ] },
@@ -9,14 +12,18 @@
     { "name":"angular-anchor-scroll", "organization":"io.scalajs.npm", "dependencies": [ "angular" ] },
     { "name":"angular-animate", "organization":"io.scalajs.npm", "dependencies": [ "angular" ] },
     { "name":"angular-cookies", "organization":"io.scalajs.npm", "dependencies": [ "angular" ] },
-    { "name":"angular-md5", "organization":"io.scalajs.npm", "dependencies": [ "angular" ] },
-    { "name":"angularjs-toaster", "organization":"io.scalajs.npm", "dependencies": [ "angular" ] },
     { "name":"angular-facebook", "organization":"io.scalajs.npm", "dependencies": [ "angular", "facebook-api" ] },
+    { "name":"angular-file-upload", "organization":"io.scalajs.npm", "dependencies": [ "angular", "moment" ] },
+    { "name":"angular-md5", "organization":"io.scalajs.npm", "dependencies": [ "angular" ] },
     { "name":"angular-nvd3", "organization":"io.scalajs.npm", "dependencies": [ "angular" ] },
     { "name":"angular-ui-bootstrap", "organization":"io.scalajs.npm", "dependencies": [ "angular" ] },
-    { "name":"angular-file-upload", "organization":"io.scalajs.npm", "dependencies": [ "angular", "moment" ] },
     { "name":"angular-sanitize", "organization":"io.scalajs.npm", "dependencies": [ "angular" ] },
     { "name":"angular-ui-router", "organization":"io.scalajs.npm", "dependencies": [ "angular" ] },
+    { "name":"angularjs-v1-bundle", "organization":"io.scalajs.npm", "dependencies": [
+      "angular", "angular-anchor-scroll", "angular-animate", "angular-cookies", "angular-file-upload",
+      "angular-md5", "angular-nvd3","angular-sanitize","angular-ui-bootstrap","angular-ui-router", "angularjs-toaster"
+    ] },
+    { "name":"angularjs-toaster", "organization":"io.scalajs.npm", "dependencies": [ "angular" ] },
     { "name":"async", "organization":"io.scalajs.npm", "dependencies": [ "nodejs" ] },
     { "name":"aws-s3", "organization":"io.scalajs.npm", "dependencies": [ "nodejs" ] },
     { "name":"bcrypt", "organization":"io.scalajs.npm", "dependencies": [ "nodejs" ] },
