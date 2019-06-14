@@ -2,9 +2,10 @@ package io.scalajs.platform.tools.installer
 
 import java.io.File
 
+import io.scalajs.platform.tools.installer.ResourceHelper._
 import org.slf4j.LoggerFactory
 
-import scala.io.{BufferedSource, Source}
+import scala.io.Source
 import scala.sys.process._
 import scala.util.Properties.userHome
 
@@ -20,7 +21,7 @@ case class CodeRepo(name: String, organization: String, dependencies: List[Strin
   /**
     * Root directory of the repository
     */
-  val rootDirectory: File = new File("./repos", name)
+  val rootDirectory: File = new File("./repos", name).getCanonicalFile
 
   /**
     * Project build file (e.g. "build.sbt")
@@ -31,6 +32,13 @@ case class CodeRepo(name: String, organization: String, dependencies: List[Strin
     * Project build.properties file
     */
   val buildPropertiesFile: File = new File(rootDirectory, "project/build.properties")
+
+  val nodeModulesDirectory: File = new File(rootDirectory, "node_modules")
+
+  /**
+    * Project package.json file
+    */
+  val packageJonFile: File = new File(rootDirectory, "package.json")
 
   /**
     * Project plugins.sbt file
@@ -47,35 +55,31 @@ case class CodeRepo(name: String, organization: String, dependencies: List[Strin
     * @param message the commit message
     * @return the exit code
     */
-  def commit(message: String): Int = {
-    logger.info(s"Committing '$name'...")
-    report(Process(command = s"""git commit -a -m "$message" """, cwd = rootDirectory).!, action = "Commit")
-  }
+  def commit(message: String, fileNames: Seq[String]): Int =
+    report(Process(List("git", "commit") ::: fileNames.toList ::: List("-m", message), cwd = rootDirectory).!, action = "Commit")
 
   /**
     * Compiles the code within repository
     * @param config the implicit [[InstallerConfig]]
     * @return the exit code
     */
-  def compile()(implicit config: InstallerConfig): Int = {
-    logger.info(s"Compiling '$name'...")
-    report(Process(command = "sbt clean compile", cwd = rootDirectory).!, action = "Compile")
-  }
+  def compile()(implicit config: InstallerConfig): Int =
+    report(Process(command = "sbt clean package", cwd = rootDirectory).!, action = "Compile")
 
   /**
     * Clones the code from the repository
     * @return the exit code
     */
-  def download(): Int = {
-    logger.info(s"Downloading '$name'...")
-    report(s"git -C ${rootDirectory.getParent} clone https://github.com/scalajs-io/$name".!, action = "Download")
-  }
+  def download(): Int = report(s"git -C ${rootDirectory.getParent} clone https://github.com/scalajs-io/$name".!, action = "Download")
 
   /**
     * Clones (or pulls) the code from the repository
     * @return the exit code
     */
   def downloadOrUpdate(): Int = if (!rootDirectory.exists()) download() else update()
+
+  def gitAdd(files: String*)(implicit config: InstallerConfig): Int =
+    report(Process(command = s"git add ${files.mkString(" ")}", cwd = rootDirectory).!, action = s"git add ${files.mkString(" ")}")
 
   /**
     * Indicates whether the repository's dependencies have been satisfied
@@ -101,32 +105,53 @@ case class CodeRepo(name: String, organization: String, dependencies: List[Strin
     new File(rootDirectory, s"target/scala-2.12/${name}_sjs0.6_2.12-${config.version}.jar")
 
   /**
+    * Returns the list of files within the repository that have been modified
+    * @return the list of modified files
+    */
+  def listModifiedFiles: List[String] = {
+    val statusLabel = "modified:"
+    Source.fromString(Process("git status", cwd = rootDirectory).!!).getLines().map(_.trim)
+      .filter(_.startsWith(statusLabel))
+      .map(_.drop(statusLabel.length).trim)
+      .toList
+  }
+
+  def npmCheckUpdates(): Int = report(Process(command = "ncu -u", cwd = rootDirectory).!, action = "ncu -u")
+
+  def npmInstall(): Int = report(Process(command = "npm install", cwd = rootDirectory).!, action = "npm install")
+
+  /**
     * Publishes the code to local SBT repository
     * @return the exit code
     */
-  def publishLocal()(implicit config: InstallerConfig): Int = {
-    logger.info(s"Publishing local '$name'...")
-    report(Process(command = "sbt publishLocal", cwd = rootDirectory).!, action = "PublishLocal")
-  }
+  def publishLocal(): Int = report(Process(command = "sbt publishLocal", cwd = rootDirectory).!, action = "publishLocal")
+
+  /**
+    * Pushes the commit on the repository
+    * @return the exit code
+    */
+  def push(): Int = report(Process(command = "git push", cwd = rootDirectory).!, action = "push")
+
+  /**
+    * Performs a "soft" reset on the repository
+    * @return the exit code
+    */
+  def reset(): Int = report(Process(command = "git reset --soft HEAD~1", cwd = rootDirectory).!, action = "reset")
+
+  def test(): Int = report(Process(command = "sbt test", cwd = rootDirectory).!, action = "test")
 
   /**
     * Indicates whether the build file contains invalid entries
     * @return true, if the build file contains invalid entries
     */
-  def unmatchedProject: Boolean = {
-    def closer[A](bs: BufferedSource)(f: BufferedSource => A): A = try f(bs) finally bs.close()
-
-    buildFile.exists() && !closer(Source.fromFile(buildFile))(_.mkString.contains(s"""name := "$name""""))
-  }
+  def unmatchedProject: Boolean =
+    buildFile.exists() && !Source.fromFile(buildFile).use(_.mkString.contains(s"""name := "$name""""))
 
   /**
     * Pulls the updated code from the repository
     * @return the exit code
     */
-  def update(): Int = {
-    logger.info(s"Updating '$name'...")
-    report(s"git -C ./repos/$name pull".!, action = "Update")
-  }
+  def update(): Int = report(s"git -C ./repos/$name pull".!, action = "pull")
 
   /**
     * Reports failed exit codes

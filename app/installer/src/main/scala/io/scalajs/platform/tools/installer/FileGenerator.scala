@@ -93,6 +93,21 @@ object FileGenerator {
     s"sbt.version=${config.sbtVersion}"
   }
 
+  def createPackageJsonFile(repo: CodeRepo)(implicit config: InstallerConfig): File = save(repo.packageJonFile) {
+    s"""|{
+        |  "name": "${repo.name}-sjs",
+        |  "version": "${config.version}",
+        |  "private": true,
+        |  "dependencies": {
+        |    "source-map-support": "^0.5.12"
+        |  },
+        |  "engines": {
+        |    "node": ">=0.12"
+        |  }
+        |}
+        |""".stripMargin('|')
+  }
+
   def createPluginsFile(repo: CodeRepo)(implicit config: InstallerConfig): File = save(repo.pluginsFile) {
     s"""|// Scala.js
         |

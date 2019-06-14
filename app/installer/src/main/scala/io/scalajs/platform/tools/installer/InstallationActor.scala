@@ -16,17 +16,20 @@ class InstallationActor()(implicit config: InstallerConfig, ctx: ProcessingConte
 
   override def receive: Receive = {
     case command@Compile(repo, attempts) =>
+      logger.info(s"Compiling '${repo.name}'...")
       if (repo.jarFile.exists()) ctx.completed(repo)
       else if (!repo.isSatisfied) reschedule(repo, command.copy(attempts = attempts + 1))
       else if (repo.compile() == 0) ctx.completed(repo)
       else ctx.fail(s"${repo.name} failed to compile")
 
     case command@Download(repo, attempts) =>
+      logger.info(s"Updating '${repo.name}'...")
       if (repo.jarFile.exists()) ctx.completed(repo)
       else if (repo.downloadOrUpdate() == 0) ctx.completed(repo)
       else reschedule(repo, command.copy(attempts = attempts + 1))
 
     case command@PublishLocal(repo, attempts) =>
+      logger.info(s"Publishing local '${repo.name}'...")
       if (repo.ivy2File.exists()) ctx.completed(repo)
       else if (!repo.isSatisfied) reschedule(repo, command.copy(attempts = attempts + 1))
       else if (repo.publishLocal() == 0) ctx.completed(repo)
