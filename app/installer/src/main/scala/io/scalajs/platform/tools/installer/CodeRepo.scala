@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory
 
 import scala.io.Source
 import scala.sys.process._
+import scala.util.Properties
 import scala.util.Properties.userHome
 
 /**
@@ -65,6 +66,16 @@ case class CodeRepo(name: String, organization: String, dependencies: List[Strin
     */
   def compile()(implicit config: InstallerConfig): Int =
     report(Process(command = "sbt clean package", cwd = rootDirectory).!, action = "Compile")
+
+  def copyFiles(): Int = {
+    val target = new File(Properties.userHome, s"GitHub/scalajs_io/app/npmjs/$name/").getCanonicalFile
+    if (target.exists()) {
+      logger.info(s"cp -r ${rootDirectory.getAbsolutePath}/src ${target.getAbsolutePath}/")
+      report(s"cp -r ${rootDirectory.getAbsolutePath}/src ${target.getAbsolutePath}/".!, action = "cp -r")
+      0
+    }
+    else 0
+  }
 
   /**
     * Clones the code from the repository

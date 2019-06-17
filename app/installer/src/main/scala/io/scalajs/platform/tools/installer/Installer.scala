@@ -38,6 +38,7 @@ object Installer {
       "audit" -> audit,
       "commit" -> commit,
       "compile" -> compile,
+      "copyFiles" -> copyFiles,
       "npmCheckUpdates" -> npmCheckUpdates,
       "npmInstall" -> npmInstall,
       "publish" -> { repos: Seq[CodeRepo] => publishLocal(repos, force = false) },
@@ -95,7 +96,7 @@ object Installer {
   def commit(repos: Seq[CodeRepo])(implicit config: InstallerConfig): Unit = repos.foreach { repo =>
     Try(repo.gitAdd("package.json")) // TODO temporary
     Try(repo.gitAdd("package-lock.json")) // TODO temporary
-    val modifiedFiles = repo.listModifiedFiles
+  val modifiedFiles = repo.listModifiedFiles
     if (modifiedFiles.nonEmpty) {
       logger.info(s"${repo.name}: ${modifiedFiles.length} file(s) modified")
       repo.commit(s"Release v${config.version}", modifiedFiles)
@@ -107,6 +108,11 @@ object Installer {
       logger.info(s"Compiling '${repo.name}'...")
       repo.compile()
     }
+  }
+
+  def copyFiles(repos: Seq[CodeRepo])(implicit config: InstallerConfig): Unit = repos.foreach { repo =>
+    logger.info(s"Copying sources for '${repo.name}'...")
+    repo.copyFiles()
   }
 
   def npmCheckUpdates(repos: Seq[CodeRepo]): Unit = repos foreach { repo =>
